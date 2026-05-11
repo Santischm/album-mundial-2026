@@ -471,16 +471,52 @@ main{position:relative;z-index:1;}
 <div class="page" style="padding-top:18px;">
   <div class="sobre-panel">
     <div class="sec-title">📦 AGREGAR SOBRE</div>
-    <div class="sobre-input-row">
+
+    <!-- Álbum selector -->
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap;">
       <div class="alb-toggle">
         <button class="alb-btn active principal" id="sobre-p-btn" onclick="setSobreAlbum('principal')">📘 Principal</button>
         <button class="alb-btn auxiliar" id="sobre-a-btn" onclick="setSobreAlbum('auxiliar')">🟠 Auxiliar</button>
       </div>
-      <input class="sobre-input" id="sobre-input" type="text" placeholder="Números separados por espacio (ej: ARG-1 ESP-B CC-3) y Enter" onkeydown="handleSobreKey(event)">
+      <!-- Mode tabs -->
+      <div class="alb-toggle">
+        <button class="alb-btn active principal" id="sobre-mode-code-btn" onclick="setSobreMode('code')">⌨️ Por código</button>
+        <button class="alb-btn" id="sobre-mode-drop-btn" onclick="setSobreMode('drop')">🔽 Por selección</button>
+      </div>
+    </div>
+
+    <!-- Code mode -->
+    <div id="sobre-code-panel" class="sobre-input-row">
+      <input class="sobre-input" id="sobre-input" type="text" placeholder="Números separados por espacio (ej: ARG-1 ESP-B CC1) y Enter" onkeydown="handleSobreKey(event)">
       <button class="btn btn-primary" onclick="addFromSobre()">Agregar al álbum</button>
       <button class="btn btn-secondary" onclick="clearSobreQueue()">Limpiar</button>
     </div>
-    <div class="sobre-preview" id="sobre-preview"></div>
+
+    <!-- Dropdown mode -->
+    <div id="sobre-drop-panel" style="display:none;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px;">
+        <div style="flex:1;min-width:150px;">
+          <div style="font-size:10px;color:var(--muted,#5a7098);margin-bottom:4px;letter-spacing:.5px;">SELECCIÓN</div>
+          <select id="sobre-team-sel" class="sort-select" style="width:100%;padding:9px 32px 9px 12px;" onchange="updateSobrePlayerSel()">
+            <option value="">— Elegí un equipo —</option>
+          </select>
+        </div>
+        <div style="flex:1;min-width:170px;">
+          <div style="font-size:10px;color:var(--muted,#5a7098);margin-bottom:4px;letter-spacing:.5px;">FIGURITA</div>
+          <select id="sobre-player-sel" class="sort-select" style="width:100%;padding:9px 32px 9px 12px;" disabled>
+            <option value="">— Primero elegí equipo —</option>
+          </select>
+        </div>
+        <button class="btn btn-secondary" style="padding:9px 14px;" onclick="addSobreFromDrop()">+ Agregar</button>
+        <button class="btn btn-secondary" style="padding:9px 14px;font-size:11px;" onclick="addSobreAllTeam()">+ Todo el equipo</button>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-primary" onclick="addFromSobre()">Agregar al álbum</button>
+        <button class="btn btn-secondary" onclick="clearSobreQueue()">Limpiar</button>
+      </div>
+    </div>
+
+    <div class="sobre-preview" id="sobre-preview" style="margin-top:10px;"></div>
   </div>
   <div class="sel-controls">
     <div class="alb-toggle">
@@ -1161,20 +1197,114 @@ function toggleStkAlbum(num){
 // SELECTOR
 // ============================================================
 let curSobreAlb='principal',curViewAlb='principal',sobreQ=[],activeFlt=null,ctxT=null,ctxA=null;
+let sobreMode='code'; // 'code' | 'drop'
 
-function setSobreAlbum(a){curSobreAlb=a;document.getElementById('sobre-p-btn').className='alb-btn '+(a==='principal'?'active principal':'');document.getElementById('sobre-a-btn').className='alb-btn '+(a==='auxiliar'?'active auxiliar':'');}
-function setViewAlbum(a){curViewAlb=a;document.getElementById('view-p-btn').className='alb-btn '+(a==='principal'?'active principal':'');document.getElementById('view-a-btn').className='alb-btn '+(a==='auxiliar'?'active auxiliar':'');renderTeams();}
+function setSobreAlbum(a){
+  curSobreAlb=a;
+  document.getElementById('sobre-p-btn').className='alb-btn '+(a==='principal'?'active principal':'');
+  document.getElementById('sobre-a-btn').className='alb-btn '+(a==='auxiliar'?'active auxiliar':'');
+}
+
+function setSobreMode(mode){
+  sobreMode=mode;
+  document.getElementById('sobre-mode-code-btn').className='alb-btn '+(mode==='code'?'active principal':'');
+  document.getElementById('sobre-mode-drop-btn').className='alb-btn '+(mode==='drop'?'active principal':'');
+  document.getElementById('sobre-code-panel').style.display=mode==='code'?'':'none';
+  document.getElementById('sobre-drop-panel').style.display=mode==='drop'?'':'none';
+  if(mode==='drop') populateSobreTeamSel();
+}
+
+function populateSobreTeamSel(){
+  const sel=document.getElementById('sobre-team-sel');
+  if(sel.options.length>1)return; // already populated
+  // Add specials group
+  const ogSpec=document.createElement('optgroup');
+  ogSpec.label='── Especiales ──';
+  const optSpec=document.createElement('option');
+  optSpec.value='__special__';optSpec.textContent='FWC & Coca-Cola';
+  ogSpec.appendChild(optSpec);sel.appendChild(ogSpec);
+  // Add teams by group
+  Object.entries(GROUPS).forEach(([g,ids])=>{
+    const og=document.createElement('optgroup');
+    og.label='── Grupo '+g+' ──';
+    ids.forEach(id=>{
+      const t=TMAP[id];if(!t)return;
+      const opt=document.createElement('option');
+      opt.value=id;opt.textContent=t.name+' (Gr.'+g+')';
+      og.appendChild(opt);
+    });
+    sel.appendChild(og);
+  });
+}
+
+function updateSobrePlayerSel(){
+  const teamId=document.getElementById('sobre-team-sel').value;
+  const pSel=document.getElementById('sobre-player-sel');
+  pSel.innerHTML='';
+  if(!teamId){pSel.disabled=true;pSel.innerHTML='<option value="">— Primero elegí equipo —</option>';return;}
+  pSel.disabled=false;
+  if(teamId==='__special__'){
+    SPECIALS.forEach(sec=>{
+      const og=document.createElement('optgroup');og.label=sec.name;
+      sec.slots.forEach(s=>{
+        const opt=document.createElement('option');
+        opt.value=s.n;opt.textContent=s.n+' — '+s.l;
+        og.appendChild(opt);
+      });
+      pSel.appendChild(og);
+    });
+  } else {
+    const t=TMAP[teamId];if(!t)return;
+    const badgeOpt=document.createElement('option');
+    badgeOpt.value=t.id+'-B';badgeOpt.textContent=t.id+'-B — Escudo ✨';
+    pSel.appendChild(badgeOpt);
+    t.p.forEach((pl,i)=>{
+      const opt=document.createElement('option');
+      opt.value=t.id+'-'+(i+1);opt.textContent=t.id+'-'+(i+1)+' — '+pl;
+      pSel.appendChild(opt);
+    });
+  }
+}
+
+function addSobreFromDrop(){
+  const v=document.getElementById('sobre-player-sel').value;
+  if(!v){toast('⚠️ Elegí una figurita del desplegable','warn');return;}
+  if(!sobreQ.includes(v.toUpperCase()))sobreQ.push(v.toUpperCase());
+  renderSobreQ();
+}
+
+function addSobreAllTeam(){
+  const teamId=document.getElementById('sobre-team-sel').value;
+  if(!teamId){toast('⚠️ Elegí un equipo primero','warn');return;}
+  let added=0;
+  if(teamId==='__special__'){
+    SPECIALS.forEach(sec=>sec.slots.forEach(s=>{if(!sobreQ.includes(s.n)){sobreQ.push(s.n);added++;}}));
+  } else {
+    const t=TMAP[teamId];if(!t)return;
+    const stks=[t.id+'-B',...t.p.map((_,i)=>t.id+'-'+(i+1))];
+    stks.forEach(n=>{if(!sobreQ.includes(n)){sobreQ.push(n);added++;}});
+  }
+  renderSobreQ();
+  toast(`✅ ${added} figuritas del equipo en la cola`,'success');
+}
+
 function handleSobreKey(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();const v=e.target.value.trim();if(v){sobreQ.push(v.toUpperCase());renderSobreQ();}e.target.value='';}}
 function renderSobreQ(){document.getElementById('sobre-preview').innerHTML=sobreQ.map((n,i)=>`<div class="sobre-tag"><span class="tnum">${n}</span><span class="tx" onclick="sobreQ.splice(${i},1);renderSobreQ()">✕</span></div>`).join('');}
 function addFromSobre(){
-  const inp=document.getElementById('sobre-input');const v=inp.value.trim();
-  if(v){v.split(/[\s,]+/).filter(Boolean).forEach(n=>sobreQ.push(n.toUpperCase()));inp.value='';}
+  if(sobreMode==='code'){
+    const inp=document.getElementById('sobre-input');const v=inp.value.trim();
+    if(v){v.split(/[\s,]+/).filter(Boolean).forEach(n=>sobreQ.push(n.toUpperCase()));inp.value='';}
+  }
   if(!sobreQ.length)return;
   let cnt=0;sobreQ.forEach(n=>{S[curSobreAlb][n]=(S[curSobreAlb][n]||0)+1;cnt++;});
   sobreQ=[];renderSobreQ();save();renderTeams();updateDashIfVis();
   toast(`✅ ${cnt} figuritas agregadas al álbum ${curSobreAlb==='principal'?'Principal':'Auxiliar'}`,'success');
 }
-function clearSobreQueue(){sobreQ=[];document.getElementById('sobre-input').value='';renderSobreQ();}
+function clearSobreQueue(){
+  sobreQ=[];
+  const inp=document.getElementById('sobre-input');if(inp)inp.value='';
+  renderSobreQ();
+}
 function toggleFilter(f){activeFlt=activeFlt===f?null:f;document.getElementById('flt-missing').classList.toggle('active',activeFlt==='missing');document.getElementById('flt-repeat').classList.toggle('active',activeFlt==='repeat');renderTeams();}
 function filterTeams(){renderTeams();}
 
