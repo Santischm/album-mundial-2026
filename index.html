@@ -424,11 +424,101 @@ main{position:relative;z-index:1;}
 .toast.warn{border-color:var(--accent);color:var(--gold);}
 
 @media(max-width:768px){
-  .albums-row,.self-swap-row,.wform-row{grid-template-columns:1fr;}
-  .stats-grid{grid-template-columns:repeat(2,1fr);}
-  .groups-grid,.fl-cards{grid-template-columns:repeat(2,1fr);}
+  /* ── NAV ── */
+  nav{padding:0 10px;gap:0;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .nav-logo{font-size:15px;padding:11px 10px 11px 0;margin-right:4px;letter-spacing:2px;}
+  .nav-tab{padding:11px 9px;font-size:11px;}
+  .nav-right{gap:5px;flex-shrink:0;}
+  .nav-right .btn{padding:6px 9px;font-size:11px;}
+
+  /* ── PAGE ── */
+  .page{padding:16px 12px;}
+
+  /* ── DASHBOARD ── */
+  .dash-title{font-size:32px;letter-spacing:2px;}
+  .dash-sub{font-size:12px;}
+  .albums-row{grid-template-columns:1fr;gap:12px;}
+  .alb-card{padding:16px;}
+  .alb-ring-wrap{gap:20px;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+  .stat-card{padding:12px 10px;}
+  .stat-card .value{font-size:28px;}
+  .stat-card .label{font-size:10px;}
+  .legend{gap:10px;font-size:10px;}
+  .view-mode-bar{gap:4px;margin-bottom:14px;}
+  .vm-btn{padding:6px 10px;font-size:11px;}
+
+  /* ── DASHBOARD VIEWS ── */
+  .groups-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+  .cont-grid{grid-template-columns:1fr;gap:10px;}
+  .fl-cards{grid-template-columns:1fr;gap:10px;}
+  .team-album-grid{grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:7px;padding:12px;}
+  .team-album-slot{min-height:70px;padding:8px 4px;}
+  .team-album-num{font-size:11px;}
+  .team-album-name{font-size:9px;}
+  .album-view-legend{gap:6px;padding:10px 12px 0;}
+  .avl-item{font-size:9px;}
+
+  /* ── MIS FIGURITAS ── */
+  .sobre-panel{padding:14px;margin-bottom:14px;}
+  .sobre-input-row{flex-direction:column;gap:8px;}
+  .sobre-input{width:100%;box-sizing:border-box;}
+  .sel-controls{gap:6px;}
+  .search-box{min-width:100%;width:100%;}
+  .flt-btn{font-size:11px;padding:7px 10px;}
+  .stk-grid{grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:6px;padding:10px;}
+  .stk-slot{padding:6px 4px;}
+  .stk-num{font-size:11px;}
+  .stk-name{font-size:9px;}
+  .team-hdr{padding:11px 12px;}
+  .team-name-wrap h3{font-size:13px;}
+
+  /* ── INTERCAMBIOS ── */
+  .swap-type-row{flex-direction:column;gap:8px;}
+  .swap-type-card{padding:12px 14px;}
+  .swap-type-icon{font-size:24px;margin-bottom:4px;}
+  .swap-type-title{font-size:15px;}
+  .self-swap-row{grid-template-columns:1fr;gap:10px;}
   .self-arrow{display:none;}
-  .swap-type-row{flex-direction:column;}
+  .wform-row{grid-template-columns:1fr;}
+  .swap-panel-inner{grid-template-columns:1fr;}
+  .world-col{min-width:0;}
+  .swap-item{padding:8px 10px;}
+  .swap-item-num{font-size:14px;min-width:44px;}
+  .pending-actions{flex-wrap:wrap;}
+  .pending-section{min-width:120px;}
+
+  /* ── RETOS ── */
+  .ai-row{flex-direction:column;gap:8px;}
+  .ai-textarea{min-height:70px;}
+  .ch-stk-grid{grid-template-columns:repeat(auto-fill,minmax(78px,1fr));}
+
+  /* ── MODAL ── */
+  .modal-box{padding:22px 18px;width:94%;}
+  .modal-actions{flex-wrap:wrap;gap:8px;}
+  .mbtn{padding:10px 18px;font-size:12px;}
+
+  /* ── CONTEXT MENU ── */
+  .ctx-menu{min-width:190px;font-size:13px;}
+  .ctx-item{padding:10px 14px;}
+
+  /* ── TOAST ── */
+  .toast{bottom:12px;right:12px;left:12px;font-size:12px;}
+}
+
+/* ── EXTRA SMALL (< 400px) ── */
+@media(max-width:400px){
+  .nav-logo{font-size:13px;padding:10px 8px 10px 0;}
+  .nav-tab{padding:10px 7px;font-size:10px;}
+  .dash-title{font-size:26px;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .stat-card .value{font-size:24px;}
+  .groups-grid{grid-template-columns:1fr;}
+  .vm-btn{padding:5px 8px;font-size:10px;}
+  .team-album-grid{grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:5px;padding:10px;}
+  .stk-grid{grid-template-columns:repeat(auto-fill,minmax(70px,1fr));}
+  .alb-btn{padding:7px 10px;font-size:12px;}
+  .btn{padding:8px 12px;font-size:12px;}
 }
 
 /* ── TAB BACKGROUND IMAGES ── */
