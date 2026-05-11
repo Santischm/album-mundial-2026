@@ -29,7 +29,7 @@ main{position:relative;z-index:1;}
 .tab-panel{display:none;}
 .tab-panel.active{display:block;animation:fadeIn .28s ease;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.page{padding:28px 22px;max-width:1380px;margin:0 auto;}
+.page{padding:28px 22px;max-width:1380px;margin:0 auto;position:relative;z-index:2;}
 .sec-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:9px;}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;backdrop-filter:blur(10px);}
 .btn{padding:9px 18px;border-radius:8px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600;font-size:13px;transition:all .2s;}
@@ -84,10 +84,10 @@ main{position:relative;z-index:1;}
 .leg-dot{width:10px;height:10px;border-radius:50%;}
 .leg-dot.p{background:var(--P);}
 .leg-dot.a{background:var(--A);}
-.view-mode-bar{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap;}
-.vm-btn{padding:7px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:20px;cursor:pointer;font-size:12px;font-weight:500;color:var(--text-muted);transition:all .2s;white-space:nowrap;}
+.view-mode-bar{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap;position:relative;z-index:10;}
+.vm-btn{padding:7px 16px;background:rgba(8,14,28,0.88);border:1px solid var(--border);border-radius:20px;cursor:pointer;font-size:12px;font-weight:500;color:var(--text-muted);transition:all .2s;white-space:nowrap;backdrop-filter:blur(12px);}
 .vm-btn:hover{border-color:var(--text-dim);color:var(--text-dim);}
-.vm-btn.active{background:rgba(251,191,36,0.12);border-color:var(--gold);color:var(--gold);}
+.vm-btn.active{background:rgba(251,191,36,0.18);border-color:var(--gold);color:var(--gold);}
 .groups-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:20px;}
 .group-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;backdrop-filter:blur(8px);}
 .group-name{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;color:var(--text-dim);margin-bottom:10px;}
@@ -115,19 +115,89 @@ main{position:relative;z-index:1;}
 .team-album-title .team-album-sub{font-size:12px;color:var(--text-muted);margin-top:2px;}
 .team-album-rings{display:flex;gap:16px;}
 .team-album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;padding:20px;}
-.team-album-slot{background:rgba(255,255,255,0.03);border:2px solid var(--border);border-radius:10px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .2s;user-select:none;position:relative;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+
+/* Base slot */
+.team-album-slot{
+  background:rgba(255,255,255,0.03);border:2px solid var(--border);
+  border-radius:10px;padding:12px 8px;text-align:center;cursor:pointer;
+  transition:all .2s;user-select:none;position:relative;
+  min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
 .team-album-slot:hover{border-color:rgba(255,255,255,0.25);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
-.team-album-slot.owned{border-color:var(--P);background:rgba(0,212,255,0.1);}
-.team-album-slot.owned-aux{border-color:var(--A);background:rgba(255,107,53,0.08);}
-.team-album-slot.both{border-color:var(--accent3);background:rgba(16,185,129,0.09);}
+
+/* 1. Solo en Principal (pegada) — cyan suave */
+.team-album-slot.st-p{
+  border-color:var(--P);
+  background:rgba(0,212,255,0.07);
+}
+/* 2. Repetida en Principal — cyan fuerte, borde grueso, glow notable */
+.team-album-slot.st-p-rep{
+  border:3px solid var(--P);
+  background:rgba(0,212,255,0.22);
+  box-shadow:0 0 0 3px rgba(0,212,255,0.25), 0 0 18px rgba(0,212,255,0.3);
+}
+/* 3. Solo en Auxiliar (pegada) — naranja suave */
+.team-album-slot.st-a{
+  border-color:var(--A);
+  background:rgba(255,107,53,0.07);
+}
+/* 4. Repetida en Auxiliar — naranja fuerte, borde grueso, glow notable */
+.team-album-slot.st-a-rep{
+  border:3px solid var(--A);
+  background:rgba(255,107,53,0.22);
+  box-shadow:0 0 0 3px rgba(255,107,53,0.25), 0 0 18px rgba(255,107,53,0.3);
+}
+/* 5. En ambos (1 en cada uno, sin repetidas) — verde */
+.team-album-slot.st-both{
+  border-color:var(--accent3);
+  background:rgba(16,185,129,0.09);
+}
+/* 6. Repetida + en ambos — dorado fuerte con glow */
+.team-album-slot.st-both-rep{
+  border:3px solid var(--gold);
+  background:rgba(251,191,36,0.18);
+  box-shadow:0 0 0 3px rgba(251,191,36,0.2), 0 0 18px rgba(251,191,36,0.25);
+}
+
 .team-album-slot.special{border-style:dashed;}
-.team-album-slot.owned.special{border-style:solid;}
+.team-album-slot.st-p.special,.team-album-slot.st-p-rep.special,
+.team-album-slot.st-a.special,.team-album-slot.st-a-rep.special,
+.team-album-slot.st-both.special,.team-album-slot.st-both-rep.special{border-style:solid;}
+
 .team-album-num{font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--gold);line-height:1;margin-bottom:4px;}
 .team-album-name{font-size:10px;color:var(--text-muted);line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
-.team-album-slot.owned .team-album-name{color:var(--text-dim);}
-.team-album-check{position:absolute;top:5px;right:5px;font-size:11px;color:var(--P);}
-.team-album-rep{position:absolute;top:4px;left:4px;background:var(--accent);color:#000;font-size:8px;font-weight:700;padding:1px 5px;border-radius:4px;}
+.team-album-slot.st-p .team-album-name,
+.team-album-slot.st-p-rep .team-album-name,
+.team-album-slot.st-both .team-album-name,
+.team-album-slot.st-both-rep .team-album-name{color:var(--text-dim);}
+
+/* Icons top-right: checkmark */
+.team-album-check{position:absolute;top:5px;right:5px;font-size:11px;}
+.team-album-slot.st-p .team-album-check,
+.team-album-slot.st-p-rep .team-album-check{color:var(--P);}
+.team-album-slot.st-a .team-album-check,
+.team-album-slot.st-a-rep .team-album-check{color:var(--A);}
+.team-album-slot.st-both .team-album-check,
+.team-album-slot.st-both-rep .team-album-check{color:var(--accent3);}
+
+/* Rep badge top-left */
+.team-album-rep{
+  position:absolute;top:4px;left:4px;
+  font-size:9px;font-weight:800;padding:2px 6px;border-radius:5px;color:#000;
+  letter-spacing:.3px;line-height:1.3;
+}
+.team-album-slot.st-p-rep .team-album-rep{background:var(--P);box-shadow:0 0 6px rgba(0,212,255,0.6);}
+.team-album-slot.st-a-rep .team-album-rep{background:var(--A);box-shadow:0 0 6px rgba(255,107,53,0.6);}
+.team-album-slot.st-both-rep .team-album-rep{background:var(--gold);box-shadow:0 0 6px rgba(251,191,36,0.6);}
+
+/* Bottom-right: album indicator icons */
+.team-album-alb-badge{position:absolute;bottom:4px;right:4px;font-size:9px;line-height:1;}
 .team-album-badge-special{position:absolute;bottom:4px;right:4px;font-size:9px;}
+
+/* LEGEND for album view */
+.album-view-legend{display:flex;flex-wrap:wrap;gap:8px;padding:12px 20px 0;border-top:1px solid var(--border);margin-top:4px;}
+.avl-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--text-muted);}
+.avl-dot{width:10px;height:10px;border-radius:3px;border:2px solid;flex-shrink:0;}
 
 /* FULL LIST - rich cards */
 .list-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center;}
@@ -695,10 +765,15 @@ main{position:relative;z-index:1;}
 
 </main>
 <div class="ctx-menu" id="ctxMenu">
-  <div class="ctx-item" onclick="ctxAction('toggle')">✅ Marcar/Desmarcar</div>
+  <div style="padding:5px 10px 3px;font-size:9px;letter-spacing:1px;color:var(--text-muted);font-weight:700;">📘 PRINCIPAL</div>
+  <div class="ctx-item" onclick="ctxAction('toggle','principal')">✅ Marcar / Desmarcar</div>
+  <div class="ctx-item" onclick="ctxAction('addRepeat','principal')">➕ Agregar repetida (+1)</div>
+  <div class="ctx-item" onclick="ctxAction('removeRepeat','principal')">➖ Quitar repetida (−1)</div>
   <div class="ctx-sep"></div>
-  <div class="ctx-item" onclick="ctxAction('addRepeat')">➕ Agregar repetida (+1)</div>
-  <div class="ctx-item" onclick="ctxAction('removeRepeat')">➖ Quitar repetida (-1)</div>
+  <div style="padding:5px 10px 3px;font-size:9px;letter-spacing:1px;color:var(--text-muted);font-weight:700;">🟠 AUXILIAR</div>
+  <div class="ctx-item" onclick="ctxAction('toggle','auxiliar')">✅ Marcar / Desmarcar</div>
+  <div class="ctx-item" onclick="ctxAction('addRepeat','auxiliar')">➕ Agregar repetida (+1)</div>
+  <div class="ctx-item" onclick="ctxAction('removeRepeat','auxiliar')">➖ Quitar repetida (−1)</div>
 </div>
 <div class="toast" id="toast"></div>
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
@@ -919,7 +994,8 @@ function updateDashboard(){
     document.getElementById('rep-'+sfx).textContent=rep;
     const circ=258;document.getElementById('ring-'+alb).style.strokeDashoffset=circ-(circ*pct/100);
   });
-  const trades=ALL.filter(s=>(S.auxiliar[s.num]||0)>=1&&(S.principal[s.num]||0)===0);
+  // Intercambios recomendados: auxiliar tiene REPETIDA (>1) y principal NO tiene la figu (=0)
+  const trades=ALL.filter(s=>(S.auxiliar[s.num]||0)>1&&(S.principal[s.num]||0)===0);
   document.getElementById('stat-trades').textContent=trades.length;
   document.getElementById('trade-badge').textContent=trades.length;
   let ct=0;TEAMS.forEach(t=>{if(teamStickers(t).every(n=>(S.principal[n]||0)>0))ct++;});
@@ -1157,21 +1233,43 @@ function renderTeamAlbumPage(container){
       <div class="team-album-grid">
         ${stks.map(s=>{
           const cp=S.principal[s.num]||0, ca=S.auxiliar[s.num]||0;
-          let cls='team-album-slot'+(s.isSpecial?' special':'');
-          if(cp>0&&ca>0) cls+=' both';
-          else if(cp>0) cls+=' owned';
-          else if(ca>0) cls+=' owned-aux';
-          const rep=cp>1?cp-1:0;
-          // Aux indicator: in principal but not in auxiliar, show orange dot if aux has it
-          const auxDot=ca>0&&cp===0?'<div class="team-album-badge-special" title="Tenés en auxiliar">🟠</div>':'';
+          // Determine the 6 visual states
+          let stateClass;
+          const inP=cp>0, inA=ca>0, repP=cp>1, repA=ca>1;
+          if(inP&&inA)       stateClass=(repP||repA)?'st-both-rep':'st-both';
+          else if(inP)       stateClass=repP?'st-p-rep':'st-p';
+          else if(inA)       stateClass=repA?'st-a-rep':'st-a';
+          else               stateClass='';
+          let cls='team-album-slot'+(s.isSpecial?' special':'')+(stateClass?' '+stateClass:'');
+
+          // Rep badge: show repeats of whichever album has them (priority: both > principal > auxiliar)
+          const repCount= (inP&&inA) ? Math.max(cp-1,0)+Math.max(ca-1,0) : inP ? cp-1 : ca-1;
+          const repBadge=repCount>0?`<div class="team-album-rep">+${repCount}</div>`:'';
+
+          // Checkmark color driven by CSS class
+          const check=(inP||inA)?'<div class="team-album-check">✓</div>':'';
+
+          // Bottom-right: small album indicator
+          let albBadge='';
+          if(inP&&inA) albBadge='<div class="team-album-alb-badge" title="En ambos álbumes">P+A</div>';
+          else if(inA&&!inP) albBadge='<div class="team-album-alb-badge" style="color:var(--A)" title="Solo en Auxiliar">AUX</div>';
+
           return `<div class="${cls}" onclick="toggleStkAlbum('${s.num}')" oncontextmenu="openCtx(event,'${s.num}','principal')">
-            ${rep>0?'<div class="team-album-rep">+'+rep+'</div>':''}
-            ${cp>0?'<div class="team-album-check">✓</div>':''}
+            ${repBadge}
+            ${check}
             <div class="team-album-num">${s.num}</div>
             <div class="team-album-name">${s.isSpecial?'⭐ ':''}${s.name}</div>
-            ${auxDot}
+            ${albBadge}
           </div>`;
         }).join('')}
+      </div>
+      <div class="album-view-legend">
+        <div class="avl-item"><div class="avl-dot" style="border-color:var(--P);background:rgba(0,212,255,0.15)"></div>Solo Principal</div>
+        <div class="avl-item"><div class="avl-dot" style="border-color:var(--P);background:rgba(0,212,255,0.3);box-shadow:0 0 0 2px rgba(0,212,255,0.3)"></div>Repetida Principal</div>
+        <div class="avl-item"><div class="avl-dot" style="border-color:var(--A);background:rgba(255,107,53,0.15)"></div>Solo Auxiliar</div>
+        <div class="avl-item"><div class="avl-dot" style="border-color:var(--A);background:rgba(255,107,53,0.3);box-shadow:0 0 0 2px rgba(255,107,53,0.3)"></div>Repetida Auxiliar</div>
+        <div class="avl-item"><div class="avl-dot" style="border-color:var(--accent3);background:rgba(16,185,129,0.15)"></div>En ambos</div>
+        <div class="avl-item"><div class="avl-dot" style="border-color:var(--gold);background:rgba(251,191,36,0.15);box-shadow:0 0 0 2px rgba(251,191,36,0.25)"></div>Repetida + ambos</div>
       </div>
     </div>`;
 }
@@ -1342,8 +1440,18 @@ function renderSlot(num,name,alb){
 function toggleSec(id){const g=document.getElementById(id),ch=document.getElementById('chev-'+id);const o=g.classList.toggle('open');if(ch)ch.classList.toggle('open',o);}
 function toggleStk(num,alb){S[alb][num]=(S[alb][num]||0)>0?0:1;save();renderTeams();updateDashIfVis();}
 function updateDashIfVis(){if(document.getElementById('tab-dashboard').classList.contains('active'))updateDashboard();}
-function openCtx(e,num,alb){e.preventDefault();ctxT=num;ctxA=alb;const m=document.getElementById('ctxMenu');m.style.left=e.clientX+'px';m.style.top=e.clientY+'px';m.classList.add('show');}
-function ctxAction(a){document.getElementById('ctxMenu').classList.remove('show');if(!ctxT)return;if(a==='toggle')S[ctxA][ctxT]=(S[ctxA][ctxT]||0)>0?0:1;else if(a==='addRepeat')S[ctxA][ctxT]=(S[ctxA][ctxT]||0)+1;else if(a==='removeRepeat'){const c=S[ctxA][ctxT]||0;if(c>0)S[ctxA][ctxT]=c-1;}save();renderTeams();updateDashIfVis();}
+function openCtx(e,num,alb){e.preventDefault();ctxT=num;ctxA=alb;const m=document.getElementById('ctxMenu');m.style.left=Math.min(e.clientX,window.innerWidth-200)+'px';m.style.top=Math.min(e.clientY,window.innerHeight-260)+'px';m.classList.add('show');}
+function ctxAction(a,alb){
+  document.getElementById('ctxMenu').classList.remove('show');
+  if(!ctxT)return;
+  const target=alb||ctxA; // use explicit album from menu button, fallback to ctxA
+  if(a==='toggle') S[target][ctxT]=(S[target][ctxT]||0)>0?0:1;
+  else if(a==='addRepeat') S[target][ctxT]=(S[target][ctxT]||0)+1;
+  else if(a==='removeRepeat'){const c=S[target][ctxT]||0;if(c>0)S[target][ctxT]=c-1;}
+  save();renderTeams();updateDashIfVis();
+  // If we're in team album view (dashboard), refresh that too
+  if(document.getElementById('tab-dashboard').classList.contains('active'))renderProgressView();
+}
 document.addEventListener('click',()=>document.getElementById('ctxMenu').classList.remove('show'));
 
 // ============================================================
@@ -1384,15 +1492,18 @@ function renderSwapList(col){
   const alb=col==='p'?'principal':'auxiliar';
   const c=document.getElementById('sl-'+col);
   const stks=ALL.filter(s=>{
-    if((S[alb][s.num]||0)<1)return false;
+    // Solo figuritas REPETIDAS (>1) — la primera está pegada, las demás están disponibles
+    if((S[alb][s.num]||0)<2)return false;
     if(srch&&!s.num.toLowerCase().includes(srch)&&!s.name.toLowerCase().includes(srch)&&!s.team.toLowerCase().includes(srch))return false;
     return true;
   });
   c.innerHTML=stks.slice(0,120).map(s=>{
-    const cnt=S[alb][s.num]||0,sel=selfSel[col].has(s.num);
-    return `<div class="swap-item ${sel?'sel-'+col:''}" onclick="toggleSelfItem('${col}','${s.num}')"><div class="swap-item-num">${s.num}</div><div class="swap-item-info"><div class="swap-item-name" style="display:flex;align-items:center;gap:4px">${s.teamId&&FLAG_CODES[s.teamId]?flagImg(s.teamId,12):''}${s.name}</div><div class="swap-item-team">${s.team}</div></div>${cnt>1?`<span class="swap-cnt">×${cnt}</span>`:''}</div>`;
+    const cnt=S[alb][s.num]||0;
+    const disponibles=cnt-1; // 1 pegada, el resto disponibles
+    const sel=selfSel[col].has(s.num);
+    return `<div class="swap-item ${sel?'sel-'+col:''}" onclick="toggleSelfItem('${col}','${s.num}')"><div class="swap-item-num">${s.num}</div><div class="swap-item-info"><div class="swap-item-name" style="display:flex;align-items:center;gap:4px">${s.teamId&&FLAG_CODES[s.teamId]?flagImg(s.teamId,12):''}${s.name}</div><div class="swap-item-team">${s.team}</div></div><span class="swap-cnt" title="Repetidas disponibles">×${disponibles}</span></div>`;
   }).join('');
-  if(!c.innerHTML)c.innerHTML=`<div style="padding:12px;text-align:center;font-size:11px;color:var(--text-muted)">No tenés figuritas para dar</div>`;
+  if(!c.innerHTML)c.innerHTML=`<div style="padding:12px;text-align:center;font-size:11px;color:var(--text-muted)">No tenés repetidas para dar</div>`;
   renderSelfSummary();
 }
 
@@ -1414,8 +1525,9 @@ function createSelfRequest(){
 function confirmSelfSwapNow(){
   const total=selfSel.p.size+selfSel.a.size;
   if(!total){toast('⚠️ No seleccionaste ninguna figurita','warn');return;}
-  selfSel.p.forEach(n=>{if((S.principal[n]||0)>0){S.principal[n]--;S.auxiliar[n]=(S.auxiliar[n]||0)+1;}});
-  selfSel.a.forEach(n=>{if((S.auxiliar[n]||0)>0){S.auxiliar[n]--;S.principal[n]=(S.principal[n]||0)+1;}});
+  // Mover repetidas: restar 1 del origen (queda pegada la primera), sumar 1 al destino
+  selfSel.p.forEach(n=>{if((S.principal[n]||0)>1){S.principal[n]--;S.auxiliar[n]=(S.auxiliar[n]||0)+1;}});
+  selfSel.a.forEach(n=>{if((S.auxiliar[n]||0)>1){S.auxiliar[n]--;S.principal[n]=(S.principal[n]||0)+1;}});
   clearSelfSwap();save();renderSwapPage();updateDashIfVis();toast('✅ Intercambio entre álbumes confirmado','success');
 }
 function clearSelfSwap(){selfSel={p:new Set(),a:new Set()};renderSwapList('p');renderSwapList('a');renderSelfSummary();}
@@ -1428,17 +1540,20 @@ function renderWorldList(col){
   const c=document.getElementById(id);
   let stks;
   if(col==='r'){
+    // Recibir: cualquier figurita (no necesitás tenerla)
     stks=ALL.filter(s=>!srch||(s.num.toLowerCase().includes(srch)||s.name.toLowerCase().includes(srch)||s.team.toLowerCase().includes(srch)));
   } else {
+    // Dar: solo repetidas (>1) — la primera está pegada
     const alb=col==='p'?'principal':'auxiliar';
-    stks=ALL.filter(s=>{if((S[alb][s.num]||0)<1)return false;if(srch&&!s.num.toLowerCase().includes(srch)&&!s.name.toLowerCase().includes(srch))return false;return true;});
+    stks=ALL.filter(s=>{if((S[alb][s.num]||0)<2)return false;if(srch&&!s.num.toLowerCase().includes(srch)&&!s.name.toLowerCase().includes(srch))return false;return true;});
   }
   c.innerHTML=stks.slice(0,80).map(s=>{
     const sel=worldSel[col].has(s.num);
     const cls=sel?(col==='r'?'swap-item sel-p':'swap-item sel-'+(col==='p'?'p':'a')):'swap-item';
     const alb=col==='p'?'principal':col==='a'?'auxiliar':null;
     const cnt=alb?S[alb][s.num]||0:0;
-    return `<div class="${cls}" onclick="toggleWorldItem('${col}','${s.num}')"><div class="swap-item-num">${s.num}</div><div class="swap-item-info"><div class="swap-item-name" style="display:flex;align-items:center;gap:4px">${s.teamId&&FLAG_CODES[s.teamId]?flagImg(s.teamId,12):''}${s.name}</div><div class="swap-item-team">${s.team}</div></div>${cnt>1?`<span class="swap-cnt">×${cnt}</span>`:''}</div>`;
+    const disponibles=cnt>1?cnt-1:0;
+    return `<div class="${cls}" onclick="toggleWorldItem('${col}','${s.num}')"><div class="swap-item-num">${s.num}</div><div class="swap-item-info"><div class="swap-item-name" style="display:flex;align-items:center;gap:4px">${s.teamId&&FLAG_CODES[s.teamId]?flagImg(s.teamId,12):''}${s.name}</div><div class="swap-item-team">${s.team}</div></div>${disponibles>0?`<span class="swap-cnt" title="Repetidas disponibles">×${disponibles}</span>`:''}</div>`;
   }).join('');
   if(!c.innerHTML)c.innerHTML=`<div style="padding:12px;text-align:center;font-size:11px;color:var(--text-muted)">Sin resultados</div>`;
   renderWorldSummary();
@@ -1514,12 +1629,14 @@ function confirmRequest(id){
     confirmCls:'mbtn-ok',
     onConfirm:()=>{
       if(isSelf){
-        (req.giveP||[]).forEach(n=>{if((S.principal[n]||0)>0){S.principal[n]--;S.auxiliar[n]=(S.auxiliar[n]||0)+1;}});
-        (req.giveA||[]).forEach(n=>{if((S.auxiliar[n]||0)>0){S.auxiliar[n]--;S.principal[n]=(S.principal[n]||0)+1;}});
+        // Solo mover repetidas (>1): resta 1 del origen, suma 1 al destino
+        (req.giveP||[]).forEach(n=>{if((S.principal[n]||0)>1){S.principal[n]--;S.auxiliar[n]=(S.auxiliar[n]||0)+1;}});
+        (req.giveA||[]).forEach(n=>{if((S.auxiliar[n]||0)>1){S.auxiliar[n]--;S.principal[n]=(S.principal[n]||0)+1;}});
       } else {
-        (req.giveP||[]).forEach(n=>{if((S.principal[n]||0)>0)S.principal[n]--;});
-        (req.giveA||[]).forEach(n=>{if((S.auxiliar[n]||0)>0)S.auxiliar[n]--;});
-        // Add received to correct album(s)
+        // Dar repetidas del principal/auxiliar (solo si tiene más de 1)
+        (req.giveP||[]).forEach(n=>{if((S.principal[n]||0)>1)S.principal[n]--;});
+        (req.giveA||[]).forEach(n=>{if((S.auxiliar[n]||0)>1)S.auxiliar[n]--;});
+        // Recibir: se suma al álbum destino
         const dest=req.recvAlbum||'principal';
         (req.recv||[]).forEach(n=>{
           if(dest==='principal'||dest==='ambos') S.principal[n]=(S.principal[n]||0)+1;
