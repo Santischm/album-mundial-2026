@@ -70,6 +70,29 @@ main{position:relative;z-index:1;}
 .stat-card .icon{font-size:22px;margin-bottom:8px;}
 .stat-card .value{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--gold);line-height:1;}
 .stat-card .label{font-size:10px;color:var(--text-muted);margin-top:3px;}
+/* ── Trade suggestions: compact chip view ── */
+.trd-section{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:10px;}
+.trd-sec-hdr{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:pointer;background:rgba(255,255,255,0.02);user-select:none;transition:background .15s;}
+.trd-sec-hdr:hover{background:rgba(255,255,255,0.05);}
+.trd-sec-sub{font-size:10px;color:var(--text-muted);font-weight:400;}
+.trd-sec-count{margin-left:auto;background:rgba(255,255,255,0.08);border-radius:20px;font-size:11px;font-weight:700;padding:2px 8px;color:var(--text-dim);}
+.trd-sec-chev{font-size:11px;color:var(--text-muted);transition:transform .2s;flex-shrink:0;}
+.trd-sec-body{padding:10px 12px;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--border);}
+.trd-group{display:flex;flex-direction:column;gap:5px;}
+.trd-group-hdr{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--text-muted);}
+.trd-group-name{flex:1;}
+.trd-group-cnt{background:rgba(255,255,255,0.06);border-radius:10px;padding:1px 6px;font-size:10px;color:var(--text-muted);}
+.trd-chips{display:flex;flex-wrap:wrap;gap:5px;}
+.trd-chip-wrap{display:inline-flex;}
+.trd-chip{display:inline-flex;align-items:center;gap:4px;border-radius:8px;overflow:hidden;border:1px solid var(--border);background:rgba(255,255,255,0.03);font-size:11px;}
+.trd-chip-code{font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--gold);padding:4px 5px 4px 8px;letter-spacing:.3px;}
+.trd-chip-name{color:var(--text-muted);font-size:10px;padding-right:4px;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.trd-action-btn{border:none;cursor:pointer;font-size:12px;padding:4px 7px;transition:all .15s;display:flex;align-items:center;justify-content:center;align-self:stretch;}
+.trd-action-btn.inter{background:rgba(251,191,36,0.1);color:var(--gold);}
+.trd-action-btn.inter:hover{background:rgba(251,191,36,0.25);}
+.trd-action-btn.pegar{background:rgba(16,185,129,0.1);color:var(--accent3);}
+.trd-action-btn.pegar:hover{background:rgba(16,185,129,0.25);}
+
 .trade-section{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:22px;backdrop-filter:blur(10px);}
 .trade-badge{background:var(--accent2);color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;}
 .trade-item{display:flex;align-items:center;gap:11px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:9px 13px;margin-bottom:6px;transition:border-color .2s;}
@@ -745,13 +768,13 @@ main{position:relative;z-index:1;}
     </div>
   </div>
   <div class="stats-grid">
-    <div class="stat-card"><div class="icon">🔄</div><div class="value" id="stat-trades">0</div><div class="label">Disponibles en Aux ya pegadas en Principal</div></div>
+    <div class="stat-card"><div class="icon">🔄</div><div class="value" id="stat-trades">0</div><div class="label">Disponibles en Aux para intercambiar</div></div>
     <div class="stat-card"><div class="icon">✅</div><div class="value" id="stat-teams">0</div><div class="label">Selecciones completas (Principal)</div></div>
     <div class="stat-card"><div class="icon">⏳</div><div class="value" id="stat-pending">0</div><div class="label">Solicitudes pendientes</div></div>
     <div class="stat-card"><div class="icon">🏅</div><div class="value" id="stat-chal">0</div><div class="label">Retos completados</div></div>
   </div>
   <div class="trade-section">
-    <div class="sec-title">🔁 SUGERENCIAS DE INTERCAMBIO (AUX disponible + ya en Principal) <span class="trade-badge" id="trade-badge">0</span></div>
+    <div class="sec-title">💡 SUGERENCIAS <span class="trade-badge" id="trade-badge">0</span></div>
     <div id="trade-list"><div class="no-data"><div style="font-size:32px;margin-bottom:8px">🎴</div>No hay intercambios disponibles.</div></div>
   </div>
   <div class="legend">
@@ -1241,25 +1264,146 @@ function updateDashboard(){
   document.getElementById('rep-a').textContent=yaEnPrincipal;
   const circA=258;document.getElementById('ring-auxiliar').style.strokeDashoffset=circA-(circA*pctA/100);
 
-  // Intercambios recomendados: auxiliar tiene la figurita Y ya está en el principal (= candidata a dar)
-  const trades=ALL.filter(s=>(S.auxiliar[s.num]||0)>0&&(S.principal[s.num]||0)>0);
-  document.getElementById('stat-trades').textContent=trades.length;
-  document.getElementById('trade-badge').textContent=trades.length;
+  // Sugerencias de intercambio — DOS categorías:
+  // 1. Para INTERCAMBIAR: en Aux pero NO en Principal → podés ofrecerlas al mundo
+  // 2. Para PEGAR en Aux: en Aux Y ya en Principal (o repetida en Aux>1) → completá el aux
+  const paraIntercambiar = ALL.filter(s=>(S.auxiliar[s.num]||0)>0 && (S.principal[s.num]||0)===0);
+  const paraPegarEnAux   = ALL.filter(s=>(S.auxiliar[s.num]||0)>0 && (S.principal[s.num]||0)>0);
+
+  document.getElementById('stat-trades').textContent=paraIntercambiar.length;
+  document.getElementById('trade-badge').textContent=paraIntercambiar.length+paraPegarEnAux.length;
   let ct=0;TEAMS.forEach(t=>{if(teamStickers(t).every(n=>(S.principal[n]||0)>0))ct++;});
   document.getElementById('stat-teams').textContent=ct;
   const pend=(S.swapRequests||[]).filter(r=>r.status==='pending').length;
   document.getElementById('stat-pending').textContent=pend;
   const dc=(S.challenges||[]).filter(c=>c.stickers.filter(n=>(S.principal[n]||0)>0).length>=c.stickers.length).length;
   document.getElementById('stat-chal').textContent=dc;
-  renderTradeList(trades);
+  renderTradeList(paraIntercambiar, paraPegarEnAux);
   renderProgressView();
 }
 
-function renderTradeList(trades){
+function renderTradeList(paraIntercambiar, paraPegarEnAux){
   const c=document.getElementById('trade-list');
-  if(!trades.length){c.innerHTML=`<div class="no-data"><div style="font-size:32px;margin-bottom:8px">🎴</div>No hay intercambios disponibles.</div>`;return;}
-  c.innerHTML=trades.slice(0,20).map(s=>`<div class="trade-item"><div class="trade-num">${s.num}</div><div class="trade-info"><div class="trade-name" style="display:flex;align-items:center;gap:5px">${s.teamId&&FLAG_CODES[s.teamId]?flagImg(s.teamId,14):''}${s.name}</div><div class="trade-team">${s.team}</div></div><div class="trade-from">Aux → Principal</div></div>`).join('');
-  if(trades.length>20)c.innerHTML+=`<div style="text-align:center;padding:8px;color:var(--text-muted);font-size:11px">...y ${trades.length-20} más</div>`;
+  if(!paraIntercambiar.length && !paraPegarEnAux.length){
+    c.innerHTML=`<div class="no-data"><div style="font-size:32px;margin-bottom:8px">🎴</div>No hay sugerencias disponibles.</div>`;
+    return;
+  }
+
+  // Group stickers by team
+  function groupByTeam(stks){
+    const map={};
+    stks.forEach(s=>{
+      const key=s.teamId||'_esp';
+      if(!map[key]) map[key]={teamId:s.teamId,teamName:s.team,items:[]};
+      map[key].items.push(s);
+    });
+    return Object.values(map).sort((a,b)=>a.teamName.localeCompare(b.teamName));
+  }
+
+  function mkSection(stks, sectionId, titleHtml, chipBtnHtml){
+    if(!stks.length) return '';
+    const groups=groupByTeam(stks);
+    const rows=groups.map(g=>{
+      const chips=g.items.map(s=>`
+        <div class="trd-chip-wrap" title="${s.name} · ${s.team}">
+          <div class="trd-chip">${chipBtnHtml(s)}
+            <span class="trd-chip-code">${s.num}</span>
+            <span class="trd-chip-name">${s.name.length>12?s.name.slice(0,11)+'…':s.name}</span>
+          </div>
+        </div>`).join('');
+      return `<div class="trd-group">
+        <div class="trd-group-hdr">
+          ${g.teamId&&FLAG_CODES[g.teamId]?flagImg(g.teamId,14):'🗂️'}
+          <span class="trd-group-name">${g.teamName}</span>
+          <span class="trd-group-cnt">${g.items.length}</span>
+        </div>
+        <div class="trd-chips">${chips}</div>
+      </div>`;
+    }).join('');
+    const total=stks.length;
+    return `<div class="trd-section" id="trd-sec-${sectionId}">
+      <div class="trd-sec-hdr" onclick="toggleTrdSec('${sectionId}')">
+        ${titleHtml}
+        <span class="trd-sec-count">${total}</span>
+        <span class="trd-sec-chev" id="trd-chev-${sectionId}">▾</span>
+      </div>
+      <div class="trd-sec-body" id="trd-body-${sectionId}">${rows}</div>
+    </div>`;
+  }
+
+  const htmlA=mkSection(
+    paraIntercambiar,
+    'inter',
+    `<span style="color:var(--gold)">🔄 PARA INTERCAMBIAR</span> <span class="trd-sec-sub">— en Aux, no están en Principal</span>`,
+    s=>`<button class="trd-action-btn inter" onclick="event.stopPropagation();openTrdCtx('${s.num}','inter')" title="Opciones">···</button>`
+  );
+
+  const htmlB=mkSection(
+    paraPegarEnAux,
+    'pegar',
+    `<span style="color:var(--accent3)">📌 PEGAR EN AUXILIAR</span> <span class="trd-sec-sub">— ya las tenés en Principal</span>`,
+    s=>`<button class="trd-action-btn pegar" onclick="event.stopPropagation();pegarEnAux('${s.num}')" title="Marcar como pegada en Aux">📌</button>`
+  );
+
+  c.innerHTML=htmlA+htmlB;
+}
+
+function toggleTrdSec(id){
+  const body=document.getElementById('trd-body-'+id);
+  const chev=document.getElementById('trd-chev-'+id);
+  const open=body.style.display!=='none';
+  body.style.display=open?'none':'';
+  if(chev) chev.style.transform=open?'rotate(-90deg)':'';
+}
+
+function pegarEnAux(num){
+  // Mark sticker as owned in auxiliar (already in principal) — confirm first
+  const info=SMAP[num]||{};
+  const modal=`<div id="pegar-confirm" style="position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.65);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px;">
+    <div style="background:#0a1224;border:1px solid var(--accent3);border-radius:16px;padding:22px 24px;max-width:340px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.8);">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:var(--accent3);margin-bottom:8px;">📌 PEGAR EN AUXILIAR</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">
+        ¿Confirmás que pegaste <strong style="color:var(--text)">${num}</strong> — ${info.name||''} en el álbum Auxiliar?<br>
+        <span style="font-size:11px;color:var(--text-muted);margin-top:6px;display:block;">Ya la tenés en Principal. Esto la va a marcar también en Auxiliar.</span>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-secondary" style="flex:1" onclick="document.getElementById('pegar-confirm').remove()">Cancelar</button>
+        <button class="btn btn-primary" style="flex:1;background:linear-gradient(135deg,rgba(16,185,129,0.4),rgba(5,150,105,0.3));border-color:var(--accent3);color:var(--accent3);"
+          onclick="confirmPegarEnAux('${num}')">✅ Confirmar</button>
+      </div>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend',modal);
+}
+
+function confirmPegarEnAux(num){
+  document.getElementById('pegar-confirm')?.remove();
+  S.auxiliar[num]=(S.auxiliar[num]||0)+1;
+  save();updateDashboard();
+  toast(`📌 ${num} marcada como pegada en el Auxiliar`,'success');
+}
+
+function openTrdCtx(num,type){
+  const info=SMAP[num]||{};
+  const modal=`<div id="trd-ctx-modal" style="position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;" onclick="if(event.target===this)this.remove()">
+    <div style="background:#0a1224;border:1px solid var(--border);border-radius:14px;padding:20px 22px;max-width:320px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.8);">
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">${info.team||''}</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--gold);letter-spacing:1px;margin-bottom:4px;">${num}</div>
+      <div style="font-size:13px;color:var(--text);margin-bottom:16px;">${info.name||''}</div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <button class="btn btn-secondary" style="text-align:left;gap:10px;display:flex;align-items:center;" onclick="document.getElementById('trd-ctx-modal').remove();openWizard()">
+          🌍 Crear solicitud de intercambio
+        </button>
+        <button class="btn btn-secondary" style="text-align:left;gap:10px;display:flex;align-items:center;border-color:rgba(251,191,36,0.3);color:var(--gold);" onclick="document.getElementById('trd-ctx-modal').remove();pegarEnAux('${num}')">
+          📌 Pegar también en Auxiliar
+        </button>
+        <button class="btn btn-secondary" style="text-align:left;gap:10px;display:flex;align-items:center;border-color:rgba(239,68,68,.3);color:#fca5a5;" onclick="document.getElementById('trd-ctx-modal').remove()">
+          ✕ Cancelar
+        </button>
+      </div>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend',modal);
 }
 
 // Flag codes for flagcdn (ISO 3166-1 alpha-2 lowercase)
