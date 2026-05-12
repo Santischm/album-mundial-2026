@@ -1542,6 +1542,13 @@ function miniAlbumRing(pct,col,lbl){
 // SELECTOR
 // ============================================================
 let curSobreAlb='principal',curViewAlb='principal',sobreQ=[],activeFlt=null,ctxT=null,ctxA=null;
+
+function setViewAlbum(a){
+  curViewAlb=a;
+  document.getElementById('view-p-btn').className='alb-btn '+(a==='principal'?'active principal':'');
+  document.getElementById('view-a-btn').className='alb-btn '+(a==='auxiliar'?'active auxiliar':'');
+  renderTeams();
+}
 let sobreMode='code'; // 'code' | 'drop'
 
 function setSobreAlbum(a){
