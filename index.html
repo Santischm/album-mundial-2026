@@ -357,18 +357,43 @@ main{position:relative;z-index:1;}
 .recv-alb-btn.act-p{background:rgba(0,212,255,0.15);color:var(--P);}
 .recv-alb-btn.act-a{background:rgba(255,107,53,0.15);color:var(--A);}
 .recv-alb-btn.act-both{background:rgba(251,191,36,0.12);color:var(--gold);}
-.pending-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;backdrop-filter:blur(8px);margin-bottom:10px;}
+.pending-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;backdrop-filter:blur(8px);margin-bottom:12px;transition:border-color .2s;}
+.pending-card:hover{border-color:rgba(255,255,255,0.15);}
 .pending-card.self-type{border-left:3px solid var(--P);}
 .pending-card.world-type{border-left:3px solid var(--gold);}
-.pending-hdr{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.pending-badge{font-size:10px;padding:3px 8px;border-radius:10px;font-weight:700;}
+.pending-hdr{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);}
+.pending-hdr-left{flex:1;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.pending-contact{font-size:13px;font-weight:600;color:var(--text);}
+.pending-date{font-size:11px;color:var(--text-muted);white-space:nowrap;margin-left:auto;}
+/* Flow layout: entrego → arrow → recibo */
+.pending-flow{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;}
+.pending-col{padding:14px 16px;}
+.pending-col.give-p{border-right:1px solid var(--border);}
+.pending-col.arrow-col{display:flex;align-items:center;justify-content:center;padding:14px 10px;color:var(--text-muted);font-size:18px;}
+.pending-col-label{font-size:9px;font-weight:700;letter-spacing:1.2px;margin-bottom:8px;display:flex;align-items:center;gap:5px;}
+.pending-col-label.lbl-p{color:var(--P);}
+.pending-col-label.lbl-a{color:var(--A);}
+.pending-col-label.lbl-r{color:var(--accent3);}
+.pending-col-label.lbl-team{color:var(--gold);}
+.pending-chips{display:flex;flex-wrap:wrap;gap:5px;}
+.pending-stk-chip{display:inline-flex;flex-direction:column;align-items:center;
+  border-radius:8px;padding:5px 9px;font-size:11px;font-weight:700;line-height:1.2;
+  font-family:'Bebas Neue',sans-serif;letter-spacing:.5px;min-width:44px;text-align:center;}
+.pending-stk-chip .chip-player{font-family:'Outfit',sans-serif;font-size:8px;font-weight:400;
+  letter-spacing:0;color:inherit;opacity:.75;margin-top:1px;max-width:60px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pending-stk-chip.chip-p{background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.35);color:var(--P);}
+.pending-stk-chip.chip-a{background:rgba(255,107,53,0.12);border:1px solid rgba(255,107,53,0.35);color:var(--A);}
+.pending-stk-chip.chip-r{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.35);color:#6ee7b7;}
+.pending-team-chip{display:inline-flex;align-items:center;gap:7px;
+  background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);
+  border-radius:10px;padding:7px 12px;color:var(--gold);font-size:12px;font-weight:600;}
+.pending-footer{padding:10px 16px;border-top:1px solid var(--border);display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.01);}
+.pending-footer-note{flex:1;font-size:11px;color:var(--text-muted);}.pending-badge{font-size:10px;padding:3px 8px;border-radius:10px;font-weight:700;}
 .pending-badge.self{background:rgba(0,212,255,0.15);color:var(--P);}
 .pending-badge.world{background:rgba(251,191,36,0.15);color:var(--gold);}
 .pending-badge.done{background:rgba(16,185,129,0.15);color:var(--accent3);}
 .pending-date{font-size:10px;color:var(--text-muted);margin-left:auto;}
-.pending-body{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
-.pending-section{flex:1;min-width:140px;}
-.pending-section-title{font-size:10px;color:var(--text-muted);margin-bottom:4px;letter-spacing:.5px;}
 .pending-actions{display:flex;gap:8px;}
 .hist-item{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:9px;padding:11px 14px;margin-bottom:7px;}
 .hist-top{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
@@ -580,8 +605,12 @@ main{position:relative;z-index:1;}
   .self-swap-row{grid-template-columns:1fr;gap:10px;}
   .self-arrow{display:none;}
   .wform-row{grid-template-columns:1fr;}
-  .pending-actions{flex-wrap:wrap;gap:6px;}
-  .pending-section{min-width:110px;}
+  .pending-card{padding:0;}
+  .pending-flow{grid-template-columns:1fr;gap:0;}
+  .pending-col.give-p{border-right:none;border-bottom:1px solid var(--border);}
+  .pending-col.arrow-col{display:none;}
+  .pending-footer{flex-wrap:wrap;gap:8px;}
+  .pending-footer-note{width:100%;}
 
   /* Recv section buttons — */
   .recv-album-sel{flex-wrap:wrap;gap:5px;}
@@ -2195,17 +2224,116 @@ function renderPendingList(){
   document.getElementById('pending-badge').textContent=pend.length;
   if(!pend.length){c.innerHTML='<div class="no-data"><span style="font-size:11px">No hay solicitudes pendientes.</span></div>';return;}
   const albLabel={'principal':'📘 Principal','auxiliar':'🟠 Auxiliar','ambos':'⭐ Ambos'};
+  const albColor={'principal':'var(--P)','auxiliar':'var(--A)','ambos':'var(--gold)'};
+
+  function stickerChip(n,cls){
+    const info=SMAP[n]||{};
+    const player=info.name&&info.name!=='Escudo ✨'?info.name:'';
+    const teamFlag=info.teamId&&FLAG_CODES[info.teamId]?`<span style="margin-right:2px">${flagImg(info.teamId,10)}</span>`:'';
+    return `<div class="pending-stk-chip ${cls}" title="${info.name||n} · ${info.team||''}">${teamFlag}<span>${n}</span>${player?`<span class="chip-player">${player}</span>`:''}</div>`;
+  }
+
   c.innerHTML=pend.map(req=>{
     const isSelf=req.type==='self';
     const giveP=req.giveP||[],giveA=req.giveA||[],recv=req.recv||[];
-    const destLabel=albLabel[req.recvAlbum||'principal']||'📘 Principal';
+    const dest=req.recvAlbum||'principal';
+    const destLabel=albLabel[dest]||'📘 Principal';
+    const destColor=albColor[dest]||'var(--P)';
     const hasRecvTeam=!isSelf&&req.recvTeam&&!recv.length;
-    const t=hasRecvTeam?TMAP[req.recvTeam]:null;
+    const recvTeamObj=hasRecvTeam?TMAP[req.recvTeam]:null;
     const teamStks=hasRecvTeam?ALL.filter(s=>s.teamId===req.recvTeam):[];
-    const recvSection=hasRecvTeam
-      ?'<div class="pending-section"><div class="pending-section-title">📥 RECIBO → '+destLabel+'</div><div class="chips-row"><span class="chip" style="background:rgba(251,191,36,.13);color:var(--gold);border:1px solid rgba(251,191,36,.3)">🎴 '+(t?t.name:req.recvTeam)+' · '+teamStks.length+' posibles · a confirmar</span></div></div>'
-      :(recv.length?'<div class="pending-section"><div class="pending-section-title">📥 RECIBO → '+destLabel+'</div><div class="chips-row">'+recv.map(n=>'<span class="chip" style="background:rgba(16,185,129,.12);color:#6ee7b7;border:1px solid rgba(16,185,129,.3)">'+n+'</span>').join('')+'</div></div>':'');
-    return '<div class="pending-card '+(isSelf?'self-type':'world-type')+'"><div class="pending-hdr"><span class="pending-badge '+(isSelf?'self':'world')+'">'+(isSelf?'🔄 Entre álbumes':'🌍 Con el mundo')+'</span>'+(req.contact?'<span style="font-size:12px;font-weight:600;color:var(--text-dim)">con '+req.contact+'</span>':'')+'<span class="pending-date">'+req.date+'</span></div><div class="pending-body">'+(giveP.length?'<div class="pending-section"><div class="pending-section-title">📘 ENTREGO DEL PRINCIPAL</div><div class="chips-row">'+giveP.map(n=>'<span class="chip p">'+n+'</span>').join('')+'</div></div>':'')+(giveA.length?'<div class="pending-section"><div class="pending-section-title">🟠 ENTREGO DEL AUXILIAR</div><div class="chips-row">'+giveA.map(n=>'<span class="chip a">'+n+'</span>').join('')+'</div></div>':'')+recvSection+(isSelf&&giveP.length&&!giveA.length?'<div class="pending-section"><div class="pending-section-title">↳ RECIBO EN EL AUXILIAR</div><div class="chips-row">'+giveP.map(n=>'<span class="chip a">'+n+'</span>').join('')+'</div></div>':'')+(isSelf&&giveA.length&&!giveP.length?'<div class="pending-section"><div class="pending-section-title">↳ RECIBO EN EL PRINCIPAL</div><div class="chips-row">'+giveA.map(n=>'<span class="chip p">'+n+'</span>').join('')+'</div></div>':'')+'</div><div class="pending-actions"><button class="btn btn-primary" style="padding:7px 14px;font-size:12px;" onclick="confirmRequest('+req.id+')">'+(hasRecvTeam?'🎴 Confirmar y elegir figura':'✅ Confirmar')+'</button><button class="btn btn-secondary" style="padding:7px 14px;font-size:12px;border-color:rgba(239,68,68,.3);color:#fca5a5;" onclick="deleteRequest('+req.id+')">🗑️ Eliminar</button></div></div>';
+
+    // Build "give" column — show both P and A stacked if needed
+    const giveColsHTML=[];
+    if(giveP.length) giveColsHTML.push(`
+      <div>
+        <div class="pending-col-label lbl-p">📘 ENTREGO DEL PRINCIPAL</div>
+        <div class="pending-chips">${giveP.map(n=>stickerChip(n,'chip-p')).join('')}</div>
+      </div>`);
+    if(giveA.length) giveColsHTML.push(`
+      <div style="${giveP.length?'margin-top:12px;padding-top:12px;border-top:1px solid var(--border)':''}">
+        <div class="pending-col-label lbl-a">🟠 ENTREGO DEL AUXILIAR</div>
+        <div class="pending-chips">${giveA.map(n=>stickerChip(n,'chip-a')).join('')}</div>
+      </div>`);
+    // Self: auto-recv labels
+    if(isSelf&&giveP.length&&!giveA.length) giveColsHTML.push(`
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+        <div class="pending-col-label" style="color:var(--A)">🟠 VAN AL AUXILIAR</div>
+        <div class="pending-chips">${giveP.map(n=>stickerChip(n,'chip-a')).join('')}</div>
+      </div>`);
+    if(isSelf&&giveA.length&&!giveP.length) giveColsHTML.push(`
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+        <div class="pending-col-label" style="color:var(--P)">📘 VAN AL PRINCIPAL</div>
+        <div class="pending-chips">${giveA.map(n=>stickerChip(n,'chip-p')).join('')}</div>
+      </div>`);
+
+    // Build "recv" column
+    let recvColHTML='';
+    if(!isSelf){
+      if(hasRecvTeam){
+        const flagHtml=recvTeamObj&&FLAG_CODES[recvTeamObj.id]
+          ?flagImg(recvTeamObj.id,16)
+          :(recvTeamObj?`<span style="font-size:14px">${recvTeamObj.flag}</span>`:'');
+        recvColHTML=`
+          <div class="pending-col-label lbl-team">🎴 RECIBO → ${destLabel}</div>
+          <div class="pending-team-chip">
+            ${flagHtml}
+            <div>
+              <div style="font-size:13px;font-weight:700">${recvTeamObj?recvTeamObj.name:req.recvTeam}</div>
+              <div style="font-size:10px;font-weight:400;color:var(--text-muted)">${teamStks.length} figuritas posibles · a confirmar al recibir</div>
+            </div>
+          </div>`;
+      } else if(recv.length){
+        recvColHTML=`
+          <div class="pending-col-label lbl-r">📥 RECIBO → ${destLabel}</div>
+          <div class="pending-chips">${recv.map(n=>stickerChip(n,'chip-r')).join('')}</div>`;
+      }
+    }
+
+    // Footer note
+    const note=isSelf
+      ?'Confirmá para mover las figuritas entre tus álbumes.'
+      :(hasRecvTeam?'Al confirmar elegís exactamente cuál figurita llegó.':'Confirmá cuando hagas el intercambio en persona.');
+
+    // Badge type
+    const badgeColor=isSelf?'rgba(0,212,255,0.15)':'rgba(251,191,36,0.12)';
+    const badgeBorder=isSelf?'rgba(0,212,255,0.3)':'rgba(251,191,36,0.3)';
+    const badgeTextColor=isSelf?'var(--P)':'var(--gold)';
+    const badgeIcon=isSelf?'🔄':'🌍';
+    const badgeText=isSelf?'Entre mis álbumes':'Con el mundo';
+
+    return `<div class="pending-card ${isSelf?'self-type':'world-type'}">
+      <!-- Header -->
+      <div class="pending-hdr">
+        <div class="pending-hdr-left">
+          <span style="background:${badgeColor};border:1px solid ${badgeBorder};color:${badgeTextColor};font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">${badgeIcon} ${badgeText}</span>
+          ${req.contact?`<span style="font-size:13px;font-weight:600;color:var(--text)">👤 ${req.contact}</span>`:''}
+        </div>
+        <span class="pending-date">${req.date}</span>
+      </div>
+      <!-- Flow: Give | Arrow | Receive -->
+      <div class="pending-flow">
+        <div class="pending-col give-p">
+          ${giveColsHTML.join('')}
+        </div>
+        <div class="pending-col arrow-col">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:1px;flex:1;background:linear-gradient(to bottom,transparent,var(--border),transparent)"></div>
+            <span style="font-size:20px;filter:grayscale(.3)">⇄</span>
+            <div style="width:1px;flex:1;background:linear-gradient(to bottom,transparent,var(--border),transparent)"></div>
+          </div>
+        </div>
+        <div class="pending-col">
+          ${recvColHTML||(!isSelf?`<div class="pending-col-label" style="color:var(--text-muted)">📥 RECIBO</div><div style="font-size:11px;color:var(--text-muted);font-style:italic">No especificado</div>`:'<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:11px;color:var(--text-muted);text-align:center;padding:0 8px;">Las figuritas se mueven<br>entre tus álbumes</div>')}
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="pending-footer">
+        <span class="pending-footer-note">💡 ${note}</span>
+        <button class="btn btn-primary" style="padding:7px 16px;font-size:12px;" onclick="confirmRequest(${req.id})">${hasRecvTeam?'🎴 Confirmar y elegir figura':'✅ Confirmar'}</button>
+        <button class="btn btn-secondary" style="padding:7px 14px;font-size:12px;border-color:rgba(239,68,68,.3);color:#fca5a5;" onclick="deleteRequest(${req.id})">🗑️ Eliminar</button>
+      </div>
+    </div>`;
   }).join('');
 }
 
