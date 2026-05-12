@@ -480,11 +480,11 @@ main{position:relative;z-index:1;}
 .hamburger-btn.open span:nth-child(2){opacity:0;}
 .hamburger-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-.ham-overlay{display:none;position:fixed;inset:0;z-index:199;background:rgba(0,0,0,0.55);backdrop-filter:blur(3px);opacity:0;transition:opacity .25s;}
-.ham-overlay.show{opacity:1;}
+.ham-overlay{display:none;position:fixed;inset:0;z-index:199;background:rgba(0,0,0,0.55);backdrop-filter:blur(3px);opacity:0;transition:opacity .25s;pointer-events:none;}
+.ham-overlay.show{opacity:1;pointer-events:all;}
 
-.ham-menu{display:none;position:fixed;top:0;left:0;bottom:0;width:min(300px,85vw);z-index:200;background:rgba(6,13,28,0.98);border-right:1px solid var(--border);flex-direction:column;transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);}
-.ham-menu.show{transform:translateX(0);}
+.ham-menu{display:none;position:fixed;top:0;left:0;bottom:0;width:min(300px,85vw);z-index:200;background:rgba(6,13,28,0.98);border-right:1px solid var(--border);flex-direction:column;transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);visibility:hidden;}
+.ham-menu.show{transform:translateX(0);visibility:visible;}
 
 .ham-header{display:flex;align-items:center;justify-content:space-between;padding:18px 18px 14px;border-bottom:1px solid var(--border);}
 .ham-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--gold);text-shadow:0 0 16px rgba(251,191,36,0.45);}
@@ -512,9 +512,9 @@ main{position:relative;z-index:1;}
   /* — Activar hamburger, ocultar tabs del nav — */
   .hamburger-btn{display:flex;}
   .nav-tab{display:none;}
+  .nav-right{display:none;}
   .ham-overlay{display:block;}
   .ham-menu{display:flex;}
-  .nav-right{display:none;}
 
   nav{padding:0 12px;gap:0;justify-content:space-between;}
   .nav-logo{font-size:16px;letter-spacing:2px;padding:12px 0;border-right:none;margin-right:0;}
@@ -1558,7 +1558,13 @@ function renderTeamAlbumPage(container){
           if(inP&&inA) albBadge='<div class="team-album-alb-badge" title="En ambos álbumes">P+A</div>';
           else if(inA&&!inP) albBadge='<div class="team-album-alb-badge" style="color:var(--A)" title="Solo en Auxiliar">AUX</div>';
 
-          return `<div class="${cls}" onclick="toggleStkAlbum('${s.num}')" oncontextmenu="openCtx(event,'${s.num}','principal')">
+          return `<div class="${cls}"
+            onclick="toggleStkAlbum('${s.num}')"
+            oncontextmenu="openCtx(event,'${s.num}','principal')"
+            ontouchstart="_lpStart(event,'${s.num}','principal')"
+            ontouchend="_lpEnd()"
+            ontouchmove="_lpCancel()"
+            ontouchcancel="_lpCancel()">
             ${repBadge}
             ${check}
             <div class="team-album-num">${s.num}</div>
@@ -1587,12 +1593,6 @@ function miniAlbumRing(pct,col,lbl){
     </svg>
     <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:${col}">${pct}%</div>
   </div>`;
-}
-
-function toggleStkAlbum(num){
-  // Toggle in principal album from team album page view
-  S.principal[num]=(S.principal[num]||0)>0?0:1;
-  save();renderProgressView();updateDashboard();
 }
 
 // ============================================================
@@ -1750,7 +1750,13 @@ function renderSlot(num,name,alb){
   const isAux=alb==='auxiliar';
   const checkIcon=isAux?(c>0?'📦':''):(c>0?'✓':'');
   const dupBadge=(isAux&&ca>0&&cp>0)?'<div class="dup-badge" title="Ya la tenés en el Principal — sugerida para intercambio">🔁</div>':'';
-  return `<div class="stk-slot ${cls}" onclick="toggleStk('${num}','${alb}')" oncontextmenu="openCtx(event,'${num}','${alb}')">
+  return `<div class="stk-slot ${cls}"
+    onclick="toggleStk('${num}','${alb}')"
+    oncontextmenu="openCtx(event,'${num}','${alb}')"
+    ontouchstart="_lpStart(event,'${num}','${alb}')"
+    ontouchend="_lpEnd()"
+    ontouchmove="_lpCancel()"
+    ontouchcancel="_lpCancel()">
     ${dupBadge}
     ${rep>0?`<div class="rep-badge">+${rep}</div>`:''}
     <div class="stk-check">${checkIcon}</div>
@@ -1759,8 +1765,8 @@ function renderSlot(num,name,alb){
   </div>`;
 }
 function toggleSec(id){const g=document.getElementById(id),ch=document.getElementById('chev-'+id);const o=g.classList.toggle('open');if(ch)ch.classList.toggle('open',o);}
-function toggleStk(num,alb){S[alb][num]=(S[alb][num]||0)>0?0:1;save();renderTeams();updateDashIfVis();}
-function updateDashIfVis(){if(document.getElementById('tab-dashboard').classList.contains('active'))updateDashboard();}
+function toggleStk(num,alb){if(_lpFired){_lpFired=false;return;}S[alb][num]=(S[alb][num]||0)>0?0:1;save();renderTeams();updateDashIfVis();}
+function toggleStkAlbum(num){if(_lpFired){_lpFired=false;return;}S.principal[num]=(S.principal[num]||0)>0?0:1;save();renderProgressView();updateDashboard();}function updateDashIfVis(){if(document.getElementById('tab-dashboard').classList.contains('active'))updateDashboard();}
 function openCtx(e,num,alb){e.preventDefault();ctxT=num;ctxA=alb;const m=document.getElementById('ctxMenu');m.style.left=Math.min(e.clientX,window.innerWidth-200)+'px';m.style.top=Math.min(e.clientY,window.innerHeight-260)+'px';m.classList.add('show');}
 function ctxAction(a,alb){
   document.getElementById('ctxMenu').classList.remove('show');
@@ -1774,6 +1780,23 @@ function ctxAction(a,alb){
   if(document.getElementById('tab-dashboard').classList.contains('active'))renderProgressView();
 }
 document.addEventListener('click',()=>document.getElementById('ctxMenu').classList.remove('show'));
+
+// ── Long press para menú contextual en mobile ──
+let _lpTimer=null;
+let _lpFired=false;
+function _lpStart(e,num,alb){
+  if(e.touches&&e.touches.length>1)return;
+  _lpFired=false;
+  _lpTimer=setTimeout(()=>{
+    _lpTimer=null;
+    _lpFired=true;
+    const touch=e.touches?e.touches[0]:e;
+    openCtx({clientX:touch.clientX,clientY:touch.clientY,preventDefault:()=>{}},num,alb);
+    if(navigator.vibrate) navigator.vibrate(40);
+  },500);
+}
+function _lpEnd(){if(_lpTimer){clearTimeout(_lpTimer);_lpTimer=null;}}
+function _lpCancel(){if(_lpTimer){clearTimeout(_lpTimer);_lpTimer=null;}}
 
 // ============================================================
 // SWAP
