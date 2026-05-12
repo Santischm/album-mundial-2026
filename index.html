@@ -1715,18 +1715,92 @@ function renderSlot(num,name,alb){
   </div>`;
 }
 function toggleSec(id){const g=document.getElementById(id),ch=document.getElementById('chev-'+id);const o=g.classList.toggle('open');if(ch)ch.classList.toggle('open',o);}
-function toggleStk(num,alb){if(_lpFired){_lpFired=false;return;}S[alb][num]=(S[alb][num]||0)>0?0:1;save();renderTeams();updateDashIfVis();}
-function toggleStkAlbum(num){if(_lpFired){_lpFired=false;return;}S.principal[num]=(S.principal[num]||0)>0?0:1;save();renderProgressView();updateDashboard();}function updateDashIfVis(){if(document.getElementById('tab-dashboard').classList.contains('active'))updateDashboard();}
-function openCtx(e,num,alb){e.preventDefault();ctxT=num;ctxA=alb;const m=document.getElementById('ctxMenu');m.style.left=Math.min(e.clientX,window.innerWidth-200)+'px';m.style.top=Math.min(e.clientY,window.innerHeight-260)+'px';m.classList.add('show');}
+
+// ── Actualización quirúrgica de un slot (sin cerrar desplegables) ──
+function patchSlot(num,alb){
+  // Re-render solo ese slot
+  const info=SMAP[num]||{};
+  const newHtml=renderSlot(num,info.name||num,alb);
+  // Buscar todos los slots con ese número (puede estar en principal y auxiliar view)
+  document.querySelectorAll('.stk-slot').forEach(el=>{
+    if(el.querySelector('.stk-num')?.textContent===num){
+      el.outerHTML=newHtml;
+    }
+  });
+  // Actualizar contador del header del equipo
+  const teamId=info.teamId;
+  if(teamId){
+    const secId='sec-'+teamId;
+    const grid=document.getElementById(secId);
+    if(grid){
+      const t=TMAP[teamId];
+      if(t){
+        const stks=[{num:t.id+'-B'},...t.p.map((_,i)=>({num:t.id+'-'+(i+1)}))];
+        const n=stks.length;
+        const op=stks.filter(s=>(S.principal[s.num]||0)>0).length;
+        const oa=stks.filter(s=>(S.auxiliar[s.num]||0)>0).length;
+        // Update tgrp text
+        const hdr=grid.previousElementSibling;
+        if(hdr){
+          const tgrp=hdr.querySelector('.tgrp');
+          if(tgrp) tgrp.textContent=`Grupo ${t.group} · ${alb==='principal'?op:oa}/${n}`;
+          // Update mini rings
+          const miniProg=hdr.querySelector('.mini-prog');
+          if(miniProg) miniProg.innerHTML=miniR(Math.round(op/n*100),'p')+miniR(Math.round(oa/n*100),'a');
+        }
+      }
+    }
+  } else {
+    // Especiales: actualizar contador
+    SPECIALS.forEach(sec=>{
+      if(sec.slots.some(s=>s.n===num)){
+        const grid=document.getElementById('sec-'+sec.id);
+        if(grid){
+          const own=sec.slots.filter(s=>(S[alb][s.n]||0)>0).length;
+          const hdr=grid.previousElementSibling;
+          if(hdr){const tgrp=hdr.querySelector('.tgrp');if(tgrp)tgrp.textContent=`${own}/${sec.slots.length} figuritas`;}
+        }
+      }
+    });
+  }
+}
+
+function toggleStk(num,alb){
+  if(_lpFired){_lpFired=false;return;}
+  S[alb][num]=(S[alb][num]||0)>0?0:1;
+  save();
+  patchSlot(num,alb);
+  updateDashIfVis();
+}
+
+function toggleStkAlbum(num){
+  if(_lpFired){_lpFired=false;return;}
+  S.principal[num]=(S.principal[num]||0)>0?0:1;
+  save();renderProgressView();updateDashboard();
+}
+
+function updateDashIfVis(){
+  if(document.getElementById('tab-dashboard').classList.contains('active'))updateDashboard();
+}
+
+function openCtx(e,num,alb){
+  e.preventDefault();ctxT=num;ctxA=alb;
+  const m=document.getElementById('ctxMenu');
+  m.style.left=Math.min(e.clientX,window.innerWidth-200)+'px';
+  m.style.top=Math.min(e.clientY,window.innerHeight-260)+'px';
+  m.classList.add('show');
+}
+
 function ctxAction(a,alb){
   document.getElementById('ctxMenu').classList.remove('show');
   if(!ctxT)return;
-  const target=alb||ctxA; // use explicit album from menu button, fallback to ctxA
+  const target=alb||ctxA;
   if(a==='toggle') S[target][ctxT]=(S[target][ctxT]||0)>0?0:1;
   else if(a==='addRepeat') S[target][ctxT]=(S[target][ctxT]||0)+1;
   else if(a==='removeRepeat'){const c=S[target][ctxT]||0;if(c>0)S[target][ctxT]=c-1;}
-  save();renderTeams();updateDashIfVis();
-  // If we're in team album view (dashboard), refresh that too
+  save();
+  patchSlot(ctxT,curViewAlb);
+  updateDashIfVis();
   if(document.getElementById('tab-dashboard').classList.contains('active'))renderProgressView();
 }
 document.addEventListener('click',()=>document.getElementById('ctxMenu').classList.remove('show'));
