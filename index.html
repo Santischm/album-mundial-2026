@@ -2315,26 +2315,30 @@ function wzRenderType(body,footer){
 function wzRenderGiveSelf(body,footer){
   const mkList=(col)=>{
     const alb=col==='p'?'principal':'auxiliar';
-    const stks=ALL.filter(s=>{
-      const cnt=S[alb][s.num]||0;
-      // Principal: repetidas (>1 = tiene 1 pegada + extras para dar)
-      // Auxiliar: repetidas (>1 = tiene 1 pegada + extras para intercambiar)
-      return cnt>1;
-    });
-    if(!stks.length) return `<div style="padding:16px;text-align:center;font-size:12px;color:var(--text-muted);">${alb==='auxiliar'?'No tenés repetidas en el Auxiliar':'No tenés repetidas en el Principal'}</div>`;
+    let stks;
+    if(alb==='principal'){
+      // Principal: solo repetidas (cp>1 → tiene 1 pegada + extras para dar)
+      stks=ALL.filter(s=>(S.principal[s.num]||0)>1);
+    } else {
+      // Auxiliar: cualquiera con intercambiar>0 (disponibles para mover al principal)
+      stks=ALL.filter(s=>auxGet(s.num).intercambiar>0);
+    }
+    if(!stks.length) return `<div style="padding:16px;text-align:center;font-size:12px;color:var(--text-muted);">${alb==='auxiliar'?'No tenés figuritas disponibles en el Auxiliar':'No tenés repetidas en el Principal'}</div>`;
     return stks.slice(0,120).map(s=>{
-      const cnt=S[alb][s.num]||0;
-      const disp=cnt-1; // disponibles para dar (1 queda pegada)
+      const disp=alb==='auxiliar'?auxGet(s.num).intercambiar:(S.principal[s.num]||0)-1;
       const sel=selfSel[col].has(s.num);
-      const yaP=(alb==='auxiliar')&&(S.principal[s.num]||0)>0;
-      const tag=yaP?'<span style="font-size:8px;background:rgba(16,185,129,0.2);color:var(--accent3);border-radius:8px;padding:1px 5px;">✓ en P</span>':'';
+      const av=auxGet(s.num);
+      // Estado en aux para contexto
+      const auxTag=alb==='auxiliar'
+        ?`<span style="font-size:8px;background:rgba(251,191,36,0.2);color:var(--gold);border-radius:8px;padding:1px 5px;">🔄 intercambio</span>`
+        :'';
       return `<div class="swap-item ${sel?'sel-'+col:''}" onclick="wzToggleSelf('${col}','${s.num}')">
         <div class="swap-item-num">${s.num}</div>
         <div class="swap-item-info">
-          <div class="swap-item-name" style="display:flex;align-items:center;gap:4px">${s.teamId&&FLAG_CODES[s.teamId]?flagImg(s.teamId,12):''}${s.name}${tag}</div>
+          <div class="swap-item-name" style="display:flex;align-items:center;gap:4px">${s.teamId&&FLAG_CODES[s.teamId]?flagImg(s.teamId,12):''}${s.name}${auxTag}</div>
           <div class="swap-item-team">${s.team}</div>
         </div>
-        <span class="swap-cnt">×${disp} extra</span>
+        ${disp>1?`<span class="swap-cnt">×${disp}</span>`:''}
       </div>`;
     }).join('');
   };
@@ -2465,17 +2469,21 @@ function wzNextContact(){
 function wzRenderGiveWorld(body,footer){
   const mkList=(col)=>{
     const alb=col==='p'?'principal':'auxiliar';
-    const stks=ALL.filter(s=>{const cnt=S[alb][s.num]||0;return cnt>1;}); // >1 = pegada + extra para dar
-    if(!stks.length)return `<div style="padding:16px;text-align:center;font-size:12px;color:var(--text-muted);">No tenés repetidas en ${alb==='auxiliar'?'el Auxiliar':'el Principal'}</div>`;
+    let stks;
+    if(alb==='principal'){
+      stks=ALL.filter(s=>(S.principal[s.num]||0)>1);
+    } else {
+      stks=ALL.filter(s=>auxGet(s.num).intercambiar>0);
+    }
+    if(!stks.length)return `<div style="padding:16px;text-align:center;font-size:12px;color:var(--text-muted);">No tenés ${alb==='auxiliar'?'figuritas disponibles en el Auxiliar':'repetidas en el Principal'}</div>`;
     return stks.slice(0,120).map(s=>{
-      const cnt=S[alb][s.num]||0;const disp=cnt-1;
+      const disp=alb==='auxiliar'?auxGet(s.num).intercambiar:(S.principal[s.num]||0)-1;
       const sel=worldSel[col].has(s.num);
-      const yaP=(alb==='auxiliar')&&(S.principal[s.num]||0)>0;
-      const tag=yaP?'<span style="font-size:8px;background:rgba(16,185,129,0.2);color:var(--accent3);border-radius:8px;padding:1px 5px;">✓ en P</span>':'';
+      const auxTag=alb==='auxiliar'?'<span style="font-size:8px;background:rgba(251,191,36,0.2);color:var(--gold);border-radius:8px;padding:1px 5px;">🔄</span>':'';
       return `<div class="swap-item ${sel?'sel-'+col:''}" onclick="wzToggleWorld('${col}','${s.num}')">
         <div class="swap-item-num">${s.num}</div>
-        <div class="swap-item-info"><div class="swap-item-name" style="display:flex;align-items:center;gap:4px">${s.teamId&&FLAG_CODES[s.teamId]?flagImg(s.teamId,12):''}${s.name}${tag}</div><div class="swap-item-team">${s.team}</div></div>
-        <span class="swap-cnt">×${disp} extra</span>
+        <div class="swap-item-info"><div class="swap-item-name" style="display:flex;align-items:center;gap:4px">${s.teamId&&FLAG_CODES[s.teamId]?flagImg(s.teamId,12):''}${s.name}${auxTag}</div><div class="swap-item-team">${s.team}</div></div>
+        ${disp>1?`<span class="swap-cnt">×${disp}</span>`:''}
       </div>`;
     }).join('');
   };
