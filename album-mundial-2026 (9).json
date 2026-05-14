@@ -1,0 +1,3267 @@
+{
+  "principal": {
+    "ARG-1": 1,
+    "MEX-2": 1,
+    "MEX-4": 1,
+    "MEX-10": 1,
+    "RSA-0": 1,
+    "RSA-1": 1,
+    "KOR-1": 2,
+    "KOR-4": 1,
+    "CZE-3": 1,
+    "CZE-11": 1,
+    "RSA-B": 1,
+    "CAN-B": 1,
+    "CAN-4": 1,
+    "CAN-11": 1,
+    "BIH-4": 1,
+    "QAT-1": 1,
+    "QAT-9": 1,
+    "QAT-10": 1,
+    "SUI-2": 2,
+    "BRA-4": 1,
+    "BRA-5": 2,
+    "MAR-5": 1,
+    "MAR-7": 1,
+    "MAR-10": 1,
+    "SCO-1": 1,
+    "SCO-2": 1,
+    "SCO-7": 1,
+    "SCO-9": 1,
+    "SCO-10": 1,
+    "PAR-8": 1,
+    "AUS-2": 1,
+    "TUR-B": 1,
+    "GER-5": 1,
+    "CUW-B": 1,
+    "CIV-3": 1,
+    "ECU-B": 1,
+    "NED-B": 1,
+    "NED-6": 1,
+    "SWE-4": 1,
+    "SWE-7": 1,
+    "TUN-B": 1,
+    "TUN-2": 1,
+    "BEL-8": 1,
+    "BEL-11": 1,
+    "EGY-1": 1,
+    "IRN-8": 1,
+    "NZL-5": 1,
+    "NZL-6": 1,
+    "NZL-11": 1,
+    "ESP-7": 1,
+    "ESP-8": 1,
+    "CPV-2": 1,
+    "CPV-10": 2,
+    "KSA-8": 1,
+    "URU-10": 1,
+    "FRA-3": 1,
+    "SEN-5": 1,
+    "IRQ-4": 1,
+    "NOR-B": 1,
+    "NOR-11": 1,
+    "ARG-2": 1,
+    "ALG-B": 1,
+    "JOR-7": 1,
+    "POR-1": 1,
+    "POR-7": 1,
+    "POR-10": 1,
+    "UZB-7": 1,
+    "UZB-8": 1,
+    "UZB-10": 1,
+    "COL-1": 1,
+    "COL-5": 1,
+    "COL-8": 1,
+    "ENG-5": 1,
+    "CRO-6": 1,
+    "CRO-9": 1,
+    "GHA-8": 1,
+    "GHA-10": 1,
+    "GHA-9": 1,
+    "PAN-7": 1,
+    "ARG-7": 1,
+    "SEN-7": 1,
+    "COD-8": 1,
+    "IRQ-9": 1,
+    "CUW-9": 1,
+    "SCO-4": 1,
+    "CRO-2": 1,
+    "UZB-2": 1,
+    "URU-5": 1,
+    "IRN-2": 1,
+    "ECU-5": 1,
+    "ENG-10": 1,
+    "POR-4": 1,
+    "TUN-11": 1,
+    "MAR-8": 1,
+    "KOR-9": 1,
+    "POR-3": 1,
+    "TUN-7": 1,
+    "CIV-1": 1,
+    "TUR-1": 1,
+    "RSA-2": 0,
+    "SCO-3": 1,
+    "NOR-8": 1,
+    "JPN-3": 1,
+    "ECU-7": 1,
+    "TUR-9": 1,
+    "CZE-B": 1,
+    "UZB-4": 1,
+    "FRA-7": 1,
+    "IRN-5": 1,
+    "EGY-4": 1,
+    "PAR-7": 1,
+    "GHA-4": 1,
+    "CRO-5": 1,
+    "JOR-6": 1,
+    "TUR-7": 1,
+    "GHA-11": 1,
+    "ENG-1": 1,
+    "ALG-11": 1,
+    "KOR-3": 1,
+    "FWC-6": 1,
+    "ARG-5": 1,
+    "NED-2": 1,
+    "ESP-2": 1,
+    "ESP-1": 1,
+    "EGY-11": 1,
+    "BEL-3": 1,
+    "SUI-3": 1,
+    "PAN-5": 1,
+    "FRA-11": 1,
+    "RSA-3": 1,
+    "COL-3": 1,
+    "COD-4": 1,
+    "POR-8": 1,
+    "ALG-6": 1,
+    "GHA-3": 1,
+    "COL-4": 1,
+    "FRA-4": 1,
+    "BIH-5": 1
+  },
+  "auxiliar": {
+    "ARG-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-2": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "HAI-2": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "SCO-2": {
+      "pegar": 1,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "SCO-4": {
+      "pegar": 1,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "SCO-7": {
+      "pegar": 1,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "USA-1": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "USA-3": {
+      "pegar": 0,
+      "intercambiar": 2,
+      "pegada": 0
+    },
+    "PAR-5": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "CUW-1": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "ECU-2": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "ECU-7": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SWE-B": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "BEL-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-2": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "IRN-B": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "NZL-5": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-8": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CPV-1": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "CPV-9": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "FRA-4": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FRA-11": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-9": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "ALG-2": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "AUT-9": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "POR-10": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "POR-11": {
+      "pegar": 0,
+      "intercambiar": 2,
+      "pegada": 0
+    },
+    "UZB-9": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "UZB-7": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COL-B": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "GHA-1": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "PAN-7": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FWC-6": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FWC-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FWC-2": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "FWC-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FWC-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FWC-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FWC-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FWC-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC12": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC13": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CC14": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MEX-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "RSA-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KOR-B": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "KOR-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KOR-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KOR-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KOR-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KOR-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KOR-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KOR-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KOR-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KOR-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KOR-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KOR-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CZE-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CZE-1": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "CZE-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CZE-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CZE-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CZE-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CZE-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CZE-7": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "CZE-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CZE-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CZE-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CZE-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CAN-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BIH-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BIH-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BIH-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BIH-3": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "BIH-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BIH-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BIH-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BIH-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BIH-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BIH-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BIH-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BIH-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "QAT-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "QAT-1": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "QAT-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "QAT-3": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "QAT-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "QAT-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "QAT-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "QAT-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "QAT-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "QAT-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "QAT-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "QAT-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SUI-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-4": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BRA-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "MAR-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "HAI-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "HAI-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "HAI-3": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "HAI-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "HAI-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "HAI-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "HAI-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "HAI-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "HAI-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "HAI-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "HAI-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SCO-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SCO-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SCO-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SCO-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SCO-6": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "SCO-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SCO-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SCO-10": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SCO-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "USA-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "USA-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "USA-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "USA-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "USA-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "USA-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "USA-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "USA-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "USA-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "USA-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAR-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAR-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAR-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAR-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAR-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAR-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAR-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAR-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAR-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAR-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAR-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUS-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUR-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GER-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CUW-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CUW-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CUW-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CUW-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CUW-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CUW-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CUW-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CUW-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CUW-9": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CUW-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CUW-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CIV-B": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "CIV-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CIV-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CIV-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CIV-4": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "CIV-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CIV-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CIV-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CIV-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CIV-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CIV-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CIV-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ECU-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ECU-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ECU-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ECU-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ECU-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ECU-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ECU-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ECU-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ECU-10": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "ECU-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-6": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NED-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JPN-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JPN-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JPN-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JPN-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JPN-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JPN-5": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "JPN-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JPN-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JPN-8": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "JPN-9": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "JPN-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JPN-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SWE-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SWE-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SWE-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SWE-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SWE-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SWE-6": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "SWE-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SWE-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SWE-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SWE-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SWE-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "TUN-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BEL-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BEL-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BEL-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BEL-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BEL-5": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "BEL-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BEL-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BEL-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BEL-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BEL-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "BEL-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "EGY-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRN-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRN-2": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRN-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRN-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRN-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRN-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRN-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRN-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRN-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRN-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRN-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NZL-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NZL-1": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "NZL-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NZL-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NZL-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NZL-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NZL-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NZL-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NZL-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NZL-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NZL-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ESP-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CPV-B": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "CPV-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CPV-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CPV-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CPV-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CPV-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CPV-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CPV-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CPV-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CPV-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KSA-B": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "KSA-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KSA-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KSA-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KSA-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KSA-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KSA-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KSA-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KSA-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KSA-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KSA-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "KSA-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "URU-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FRA-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FRA-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FRA-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FRA-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FRA-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FRA-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FRA-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FRA-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "FRA-9": {
+      "pegar": 0,
+      "intercambiar": 2,
+      "pegada": 0
+    },
+    "FRA-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "SEN-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-4": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "IRQ-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NOR-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NOR-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NOR-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NOR-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NOR-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NOR-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NOR-6": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "NOR-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NOR-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NOR-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "NOR-10": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "NOR-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ARG-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ARG-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ARG-3": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "ARG-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ARG-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ARG-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ARG-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ARG-8": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "ARG-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ARG-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ARG-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ALG-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ALG-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ALG-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ALG-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ALG-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ALG-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ALG-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ALG-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ALG-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ALG-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ALG-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUT-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUT-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUT-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUT-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUT-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUT-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUT-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUT-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUT-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUT-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "AUT-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JOR-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JOR-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JOR-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JOR-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JOR-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JOR-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JOR-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JOR-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JOR-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JOR-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "JOR-10": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "JOR-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "POR-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "POR-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "POR-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "POR-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "POR-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "POR-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "POR-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "POR-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "POR-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "POR-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COD-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "UZB-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "UZB-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "UZB-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "UZB-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "UZB-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "UZB-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "UZB-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "UZB-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "UZB-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "UZB-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COL-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COL-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COL-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COL-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COL-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COL-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COL-7": {
+      "pegar": 0,
+      "intercambiar": 1,
+      "pegada": 0
+    },
+    "COL-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COL-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COL-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "COL-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-5": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "ENG-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "CRO-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GHA-B": {
+      "pegar": 0,
+      "intercambiar": 2,
+      "pegada": 0
+    },
+    "GHA-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GHA-3": {
+      "pegar": 1,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GHA-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GHA-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GHA-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GHA-7": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GHA-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GHA-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GHA-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "GHA-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAN-B": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAN-1": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAN-2": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAN-3": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAN-4": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAN-5": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAN-6": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAN-8": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAN-9": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAN-10": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    },
+    "PAN-11": {
+      "pegar": 0,
+      "intercambiar": 0,
+      "pegada": 0
+    }
+  },
+  "swapRequests": [
+    {
+      "type": "self",
+      "giveP": [
+        "BRA-5"
+      ],
+      "giveA": [
+        "ARG-8"
+      ],
+      "id": 1778777458474,
+      "status": "pending",
+      "date": "14/5/2026"
+    },
+    {
+      "type": "self",
+      "giveP": [
+        "SUI-2"
+      ],
+      "giveA": [
+        "ARG-3"
+      ],
+      "id": 1778777417550,
+      "status": "pending",
+      "date": "14/5/2026"
+    },
+    {
+      "type": "world",
+      "contact": "",
+      "giveP": [],
+      "giveA": [
+        "BEL-3"
+      ],
+      "recvAlbum": "auxiliar",
+      "recv": [
+        "BEL-5"
+      ],
+      "id": 1778696290917,
+      "status": "done",
+      "date": "13/5/2026",
+      "confirmedAt": "13/5/2026"
+    },
+    {
+      "type": "self",
+      "giveP": [
+        "BRA-4"
+      ],
+      "giveA": [
+        "ARG-5"
+      ],
+      "id": 1778680094934,
+      "status": "done",
+      "date": "13/5/2026",
+      "confirmedAt": "14/5/2026"
+    },
+    {
+      "type": "self",
+      "giveP": [
+        "NED-6"
+      ],
+      "giveA": [
+        "NED-2"
+      ],
+      "id": 1778680051594,
+      "status": "done",
+      "date": "13/5/2026",
+      "confirmedAt": "14/5/2026"
+    },
+    {
+      "type": "world",
+      "contact": "",
+      "giveP": [
+        "POR-10"
+      ],
+      "giveA": [],
+      "recvAlbum": "principal",
+      "recv": [
+        "NOR-8"
+      ],
+      "id": 1778597939160,
+      "status": "done",
+      "date": "12/5/2026",
+      "confirmedAt": "12/5/2026"
+    },
+    {
+      "type": "world",
+      "contact": "",
+      "giveP": [
+        "SCO-9"
+      ],
+      "giveA": [],
+      "recv": [
+        "SCO-3"
+      ],
+      "recvAlbum": "principal",
+      "id": 1778592403277,
+      "status": "done",
+      "date": "12/5/2026",
+      "confirmedAt": "12/5/2026"
+    },
+    {
+      "type": "world",
+      "contact": "",
+      "giveP": [
+        "SEN-5"
+      ],
+      "giveA": [],
+      "recv": [
+        "SEN-7"
+      ],
+      "recvAlbum": "principal",
+      "id": 1778589592401,
+      "status": "done",
+      "date": "12/5/2026",
+      "confirmedAt": "12/5/2026"
+    },
+    {
+      "type": "world",
+      "contact": "",
+      "giveP": [
+        "SCO-2"
+      ],
+      "giveA": [],
+      "recv": [
+        "ARG-7"
+      ],
+      "recvAlbum": "principal",
+      "id": 1778538637089,
+      "status": "done",
+      "date": "11/5/2026",
+      "confirmedAt": "11/5/2026"
+    }
+  ],
+  "challenges": []
+}
