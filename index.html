@@ -3638,7 +3638,7 @@ function openFirebaseSetup(){
       <div style="display:flex;flex-direction:column;gap:16px;">
         ${['1. Ir a <a href="https://console.firebase.google.com" target="_blank" style="color:var(--P)">console.firebase.google.com</a> e iniciar sesión con Google',
            '2. Hacer click en <strong style="color:var(--text)">Agregar proyecto</strong> → ponerle un nombre (ej: "album-mundial") → continuar hasta crearlo',
-           '3. En el panel del proyecto, hacer click en el ícono <strong style="color:var(--text)">&lt;/&gt; Web</strong> → registrar la app → copiar el objeto <code style="background:rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;">firebaseConfig</code>',
+           '3. En el panel del proyecto, hacer click en el ícono <strong style="color:var(--text)">&lt;/&gt; Web</strong> → registrar la app → en "Configuración del SDK" elegir <strong style="color:var(--gold)">Config</strong> (no npm ni CDN) → copiar el objeto <code style="background:rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;">firebaseConfig</code>',
            '4. Ir a <strong style="color:var(--text)">Build → Firestore Database</strong> → Crear base de datos → elegir <strong style="color:var(--text)">Modo de prueba</strong> → listo',
            '5. Pegá el objeto firebaseConfig acá abajo:'].map((s,i)=>`
           <div style="display:flex;gap:12px;align-items:flex-start;">
@@ -3648,13 +3648,13 @@ function openFirebaseSetup(){
 
         <div>
           <div style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--text-muted);margin-bottom:6px;">PEGAR AQUÍ EL OBJETO firebaseConfig</div>
-          <textarea id="fb-config-input" rows="8" placeholder='{
-  "apiKey": "AIza...",
-  "authDomain": "tu-proyecto.firebaseapp.com",
-  "projectId": "tu-proyecto",
-  "storageBucket": "tu-proyecto.appspot.com",
-  "messagingSenderId": "123456789",
-  "appId": "1:123..."
+          <textarea id="fb-config-input" rows="8" placeholder='Pegá el objeto firebaseConfig (tab "Config" en Firebase). Funciona con o sin comillas en las keys:
+
+{
+  apiKey: "AIza...",
+  authDomain: "tu-proyecto.firebaseapp.com",
+  projectId: "tu-proyecto",
+  ...
 }' style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;padding:12px;color:var(--text);font-family:monospace;font-size:12px;resize:vertical;outline:none;"></textarea>
         </div>
 
@@ -3681,15 +3681,30 @@ function openFirebaseSetup(){
 async function applyFirebaseConfig(){
   const raw=document.getElementById('fb-config-input')?.value?.trim();
   const errEl=document.getElementById('fb-setup-error');
-  if(!raw){errEl.textContent='Pegá tu configuración de Firebase primero.';errEl.style.display='';return;}
+  if(errEl) errEl.style.display='none';
+  if(!raw){if(errEl){errEl.textContent='Pegá tu configuración de Firebase primero.';errEl.style.display='';}return;}
   try{
-    const cfg=JSON.parse(raw.replace(/(\w+):/g,'"$1":').replace(/'/g,'"'));
-    if(!cfg.projectId||!cfg.apiKey) throw new Error('Falta apiKey o projectId');
+    // Extraer solo el objeto {} aunque venga con "const firebaseConfig = {...}" o similar
+    let jsonStr=raw;
+    const match=raw.match(/\{[\s\S]*\}/);
+    if(match) jsonStr=match[0];
+
+    // Convertir formato JS a JSON válido:
+    // 1. Poner comillas a las keys sin comillas: apiKey: → "apiKey":
+    jsonStr=jsonStr.replace(/([{,]\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*:/g,'$1"$2":');
+    // 2. Reemplazar comillas simples por dobles
+    jsonStr=jsonStr.replace(/'/g,'"');
+    // 3. Quitar comas finales antes de }
+    jsonStr=jsonStr.replace(/,\s*([}\]])/g,'$1');
+
+    const cfg=JSON.parse(jsonStr);
+    if(!cfg.projectId||!cfg.apiKey) throw new Error('Falta apiKey o projectId. Asegurate de estar en la tab "Config" en Firebase.');
+
     // Save config
     localStorage.setItem('wc26-fb-config',JSON.stringify(cfg));
     FB_CONFIG=cfg;
     const ok=await initFirebase();
-    if(!ok) throw new Error('No se pudo conectar a Firebase. Revisá la configuración.');
+    if(!ok) throw new Error('No se pudo conectar a Firebase. Revisá que creaste la base de datos Firestore.');
     // First sync
     await fbSaveMyData();
     await fbLoadAmigo();
