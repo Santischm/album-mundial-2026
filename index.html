@@ -39,6 +39,37 @@ main{position:relative;z-index:1;}
 .btn-secondary:hover{border-color:var(--text-dim);color:var(--text);}
 
 /* DASHBOARD */
+/* ── Dashboard hero ── */
+.dash-hero{display:flex;flex-direction:column;gap:14px;margin-bottom:4px;}
+.dash-hero-principal{display:flex;align-items:center;gap:20px;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 24px;}
+.dash-hero-ring-wrap{position:relative;flex-shrink:0;}
+.dash-hero-ring-wrap svg{display:block;}
+.dash-hero-ring-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.dash-hero-pct{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--P);line-height:1;}
+.dash-hero-nums{flex:1;}
+.dash-hero-miss{display:flex;align-items:flex-end;gap:6px;margin-bottom:12px;}
+.dash-hero-sub-stats{display:flex;gap:16px;flex-wrap:wrap;}
+.dash-hero-sub-stat{display:flex;flex-direction:column;align-items:flex-start;gap:1px;}
+.dash-hero-sub-stat span:first-child{font-family:'Bebas Neue',sans-serif;font-size:22px;line-height:1;}
+.dash-hero-sub-stat span:last-child{font-size:10px;color:var(--text-muted);letter-spacing:.3px;}
+.dash-aux-strip{display:flex;align-items:center;gap:14px;background:rgba(255,107,53,0.06);border:1px solid rgba(255,107,53,0.2);border-radius:12px;padding:12px 18px;}
+.dash-aux-ring-wrap{position:relative;flex-shrink:0;}
+.dash-aux-stats{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--text-muted);}
+.dash-aux-stats strong{font-size:15px;font-family:'Bebas Neue',sans-serif;}
+.dash-aux-actions{margin-left:auto;display:flex;gap:6px;}
+.dash-quick-btn{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:8px;padding:6px 12px;color:var(--text-dim);font-size:12px;font-family:'Outfit',sans-serif;cursor:pointer;transition:all .15s;}
+.dash-quick-btn:hover{background:rgba(255,255,255,0.1);color:var(--text);}
+/* ── Amigos ── */
+.amigo-cruce-col{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.amigo-cruce-hdr{padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:1px;border-bottom:1px solid var(--border);}
+.amigo-cruce-body{padding:10px 12px;max-height:320px;overflow-y:auto;}
+.amigo-stk-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:12px;}
+.amigo-stk-row:last-child{border-bottom:none;}
+.amigo-stk-num{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--gold);min-width:52px;}
+.amigo-album-team{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden;}
+.amigo-album-team-hdr{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:pointer;}
+.amigo-album-team-hdr:hover{background:rgba(255,255,255,0.03);}
+
 .dash-title{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:4px;line-height:1;background:linear-gradient(135deg,#fff 0%,var(--gold) 60%,#f97316 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .dash-sub{color:var(--text-muted);font-size:12px;margin-top:4px;margin-bottom:28px;}
 .albums-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px;}
@@ -718,14 +749,18 @@ main{position:relative;z-index:1;}
 }
 
 </style>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
 <nav>
   <div class="nav-logo">⚽ MUNDIAL 26</div>
-  <div class="nav-tab active" data-tab="dashboard" onclick="switchTab('dashboard')">📊 Dashboard</div>
+  <div class="nav-tab" data-tab="dashboard" onclick="switchTab('dashboard')">📊 Dashboard</div>
   <div class="nav-tab" data-tab="selector" onclick="switchTab('selector')">🗂️ Mis Figuritas</div>
   <div class="nav-tab" data-tab="swap" onclick="switchTab('swap')">🔀 Intercambios</div>
+  <div class="nav-tab" data-tab="amigos" onclick="switchTab('amigos')">👥 Amigos</div>
   <div class="nav-tab" data-tab="challenges" onclick="switchTab('challenges')">🏅 Retos</div>
   <div class="nav-right">
     <span class="save-ind" id="saveInd">✓ Guardado</span>
@@ -758,6 +793,10 @@ main{position:relative;z-index:1;}
       <span class="ham-icon">🔀</span>
       <div class="ham-info"><div class="ham-name">Intercambios</div><div class="ham-desc">Gestionar intercambios</div></div>
     </div>
+    <div class="ham-tab" data-tab="amigos" onclick="switchTab('amigos');closeHamburger()">
+      <span class="ham-icon">👥</span>
+      <div class="ham-info"><div class="ham-name">Amigos</div><div class="ham-desc">Comparar álbumes y cruzar figuritas</div></div>
+    </div>
     <div class="ham-tab" data-tab="challenges" onclick="switchTab('challenges');closeHamburger()">
       <span class="ham-icon">🏅</span>
       <div class="ham-info"><div class="ham-name">Retos</div><div class="ham-desc">Colecciones especiales</div></div>
@@ -773,57 +812,94 @@ main{position:relative;z-index:1;}
 <!-- DASHBOARD -->
 <div class="tab-panel active" id="tab-dashboard">
 <div class="page">
-  <div class="dash-title">MI ÁLBUM 2026</div>
-  <div class="dash-sub">FIFA World Cup · USA · México · Canadá · 48 selecciones</div>
-  <div class="albums-row">
-    <div class="album-card principal">
-      <div class="ring-wrap"><svg width="98" height="98" viewBox="0 0 98 98"><circle class="ring-bg" cx="49" cy="49" r="41"/><circle class="ring-fill" cx="49" cy="49" r="41" id="ring-principal" stroke-dasharray="258" stroke-dashoffset="258"/></svg>
-        <div class="ring-text"><div class="ring-pct" id="pct-p">0%</div><div class="ring-label">COMPLETADO</div></div>
+
+  <!-- ── HERO ── -->
+  <div class="dash-hero">
+    <!-- Principal: big ring + key numbers -->
+    <div class="dash-hero-principal">
+      <div class="dash-hero-ring-wrap">
+        <svg width="130" height="130" viewBox="0 0 130 130">
+          <circle class="ring-bg" cx="65" cy="65" r="55" stroke-width="10"/>
+          <circle class="ring-fill" cx="65" cy="65" r="55" id="ring-principal"
+            stroke-dasharray="346" stroke-dashoffset="346" stroke-width="10"
+            stroke-linecap="round" transform="rotate(-90 65 65)"/>
+        </svg>
+        <div class="dash-hero-ring-text">
+          <div class="dash-hero-pct" id="pct-p">0%</div>
+          <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;">PRINCIPAL</div>
+        </div>
       </div>
-      <div class="album-info"><h3>📘 ÁLBUM PRINCIPAL</h3>
-        <div class="album-stats">
-          <div class="album-stat"><div class="val" id="owned-p" style="color:var(--P)">0</div><div class="lbl">PEGADAS</div></div>
-          <div class="album-stat"><div class="val" id="miss-p" style="color:var(--accent2)">—</div><div class="lbl">FALTAN</div></div>
-          <div class="album-stat"><div class="val" id="rep-p" style="color:var(--gold)">0</div><div class="lbl">REPETIDAS</div></div>
+      <div class="dash-hero-nums">
+        <div class="dash-hero-miss">
+          <span id="miss-p" style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--accent2);line-height:1;">—</span>
+          <span style="font-size:13px;color:var(--text-muted);margin-left:6px;line-height:1.3;">figuritas<br>te faltan</span>
+        </div>
+        <div class="dash-hero-sub-stats">
+          <div class="dash-hero-sub-stat"><span id="owned-p" style="color:var(--P)">0</span><span>pegadas</span></div>
+          <div class="dash-hero-sub-stat"><span id="rep-p" style="color:var(--gold)">0</span><span>repetidas en P</span></div>
+          <div class="dash-hero-sub-stat"><span id="stat-teams" style="color:var(--accent3)">0</span><span>equipos completos</span></div>
         </div>
       </div>
     </div>
-    <div class="album-card auxiliar">
-      <div class="ring-wrap"><svg width="98" height="98" viewBox="0 0 98 98"><circle class="ring-bg" cx="49" cy="49" r="41"/><circle class="ring-fill" cx="49" cy="49" r="41" id="ring-auxiliar" stroke-dasharray="258" stroke-dashoffset="258"/></svg>
-        <div class="ring-text"><div class="ring-pct" id="pct-a">0%</div><div class="ring-label">PEGADAS</div></div>
-      </div>
-      <div class="album-info"><h3>🟠 ÁLBUM AUXILIAR</h3>
-        <div class="album-stats">
-          <div class="album-stat"><div class="val" id="owned-a" style="color:var(--A)">0</div><div class="lbl">PEGADAS</div></div>
-          <div class="album-stat"><div class="val" id="miss-a" style="color:var(--accent2)">0</div><div class="lbl">P/INTERCAMBIAR</div></div>
-          <div class="album-stat"><div class="val" id="rep-a" style="color:var(--accent3)">0</div><div class="lbl">P/PEGAR</div></div>
+
+    <!-- Auxiliar: compact strip -->
+    <div class="dash-aux-strip">
+      <div class="dash-aux-ring-wrap">
+        <svg width="54" height="54" viewBox="0 0 54 54">
+          <circle class="ring-bg" cx="27" cy="27" r="21" stroke-width="6"/>
+          <circle class="ring-fill" cx="27" cy="27" r="21" id="ring-auxiliar"
+            stroke-dasharray="132" stroke-dashoffset="132" stroke-width="6"
+            stroke-linecap="round" transform="rotate(-90 27 27)"/>
+        </svg>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+          <span id="pct-a" style="font-size:11px;font-weight:700;color:var(--A)">0%</span>
         </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--A);margin-bottom:5px;letter-spacing:.5px;">🟠 AUXILIAR</div>
+        <div class="dash-aux-stats">
+          <span><strong id="owned-a" style="color:var(--A)">0</strong> pegadas</span>
+          <span><strong id="miss-a" style="color:var(--gold)">0</strong> p/intercambiar</span>
+          <span><strong id="rep-a" style="color:var(--accent3)">0</strong> p/pegar</span>
+        </div>
+      </div>
+      <!-- Quick actions -->
+      <div class="dash-aux-actions">
+        <button class="dash-quick-btn" onclick="switchTab('swap')" title="Intercambios pendientes">
+          ⏳ <span id="stat-pending">0</span>
+        </button>
+        <button class="dash-quick-btn" onclick="exportData()" title="Exportar mis datos">
+          💾
+        </button>
       </div>
     </div>
   </div>
-  <div class="stats-grid">
-    <div class="stat-card"><div class="icon">🔄</div><div class="value" id="stat-trades">0</div><div class="label">Disponibles en Aux para intercambiar</div></div>
-    <div class="stat-card"><div class="icon">✅</div><div class="value" id="stat-teams">0</div><div class="label">Selecciones completas (Principal)</div></div>
-    <div class="stat-card"><div class="icon">⏳</div><div class="value" id="stat-pending">0</div><div class="label">Solicitudes pendientes</div></div>
-    <div class="stat-card"><div class="icon">🏅</div><div class="value" id="stat-chal">0</div><div class="label">Retos completados</div></div>
-  </div>
-  <div class="trade-section">
+
+  <!-- ── SUGERENCIAS ── -->
+  <div class="trade-section" style="margin-top:16px;">
     <div class="sec-title">💡 SUGERENCIAS <span class="trade-badge" id="trade-badge">0</span></div>
-    <div id="trade-list"><div class="no-data"><div style="font-size:32px;margin-bottom:8px">🎴</div>No hay intercambios disponibles.</div></div>
+    <div id="trade-list"><div class="no-data"><div style="font-size:32px;margin-bottom:8px">🎴</div>No hay sugerencias todavía.</div></div>
   </div>
-  <div class="legend">
-    <div class="leg-dot" style="background:var(--P)"></div><span style="color:var(--P)">Principal</span>
-    <div class="leg-dot" style="background:var(--accent3)"></div><span style="color:var(--accent3)">Ambos / Pegada aux</span>
-    <div class="leg-dot" style="background:rgba(0,212,255,0.5);border:1px dashed var(--P)"></div><span style="color:var(--text-muted)">Lista para pegar en aux</span>
-    <div class="leg-dot" style="background:var(--A)"></div><span style="color:var(--A)">Para intercambiar</span>
+
+  <!-- ── PROGRESO (colapsable) ── -->
+  <div style="margin-top:8px;">
+    <div class="sec-title" style="cursor:pointer;user-select:none;" onclick="toggleDashProgress()">
+      📈 PROGRESO POR EQUIPO <span id="dash-prog-chev" style="font-size:12px;color:var(--text-muted);transition:transform .2s;display:inline-block;">▾</span>
+    </div>
+    <div id="dash-progress-wrap">
+      <div class="view-mode-bar">
+        <button class="vm-btn active" onclick="setViewMode('groups',this)">🗂️ Por Grupo</button>
+        <button class="vm-btn" onclick="setViewMode('continent',this)">🌍 Por Continente</button>
+        <button class="vm-btn" onclick="setViewMode('team',this)">🏳️ Por Equipo</button>
+        <button class="vm-btn" onclick="setViewMode('list',this)">📋 Listado Completo</button>
+      </div>
+      <div id="progress-view"></div>
+    </div>
   </div>
-  <div class="view-mode-bar">
-    <button class="vm-btn active" onclick="setViewMode('groups',this)">🗂️ Por Grupo</button>
-    <button class="vm-btn" onclick="setViewMode('continent',this)">🌍 Por Continente</button>
-    <button class="vm-btn" onclick="setViewMode('team',this)">🏳️ Por Equipo</button>
-    <button class="vm-btn" onclick="setViewMode('list',this)">📋 Listado Completo</button>
-  </div>
-  <div id="progress-view"></div>
+
+  <!-- hidden stat ids still needed by updateDashboard -->
+  <span id="stat-trades" style="display:none">0</span>
+  <span id="stat-chal" style="display:none">0</span>
 </div>
 </div>
 
@@ -1049,6 +1125,72 @@ main{position:relative;z-index:1;}
   </div>
   <div class="sec-title">🏅 MIS RETOS</div>
   <div id="ch-list"><div class="no-data"><span style="font-size:11px">No hay retos creados.</span></div></div>
+</div>
+</div>
+<!-- AMIGOS -->
+<div class="tab-panel" id="tab-amigos">
+<div class="page">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:22px;">
+    <div>
+      <div class="dash-title" style="font-size:32px;margin-bottom:2px;">AMIGOS</div>
+      <div class="dash-sub" style="margin-bottom:0;">Compará álbumes y encontrá intercambios</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <button class="btn btn-secondary" style="display:flex;align-items:center;gap:6px;" onclick="exportMisDatos()">💾 Exportar mis datos</button>
+      <button class="btn btn-primary" style="display:flex;align-items:center;gap:6px;" onclick="importAmigoTrigger()">📂 Cargar álbum de amigo</button>
+      <input type="file" id="amigoFile" accept=".json" style="display:none" onchange="importAmigoData(event)">
+    </div>
+  </div>
+
+  <!-- Firebase status -->
+  <div id="amigo-fb-status" style="margin-bottom:16px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;"></div>
+
+  <!-- Sin amigo cargado -->
+  <div id="amigo-empty" style="">
+    <div style="background:var(--surface);border:2px dashed var(--border);border-radius:16px;padding:40px 24px;text-align:center;">
+      <div style="font-size:48px;margin-bottom:12px;">👥</div>
+      <div style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:8px;">Todavía no cargaste el álbum de tu amigo</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-bottom:20px;max-width:400px;margin-left:auto;margin-right:auto;">
+        Pedile que exporte sus datos desde su app (botón "Exportar mis datos") y te mande el archivo JSON. Después cargalo acá.
+      </div>
+      <button class="btn btn-primary" style="font-size:14px;padding:11px 24px;" onclick="importAmigoTrigger()">📂 Cargar álbum de amigo</button>
+    </div>
+  </div>
+
+  <!-- Con amigo cargado -->
+  <div id="amigo-loaded" style="display:none;">
+    <!-- Header del amigo -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <div style="font-size:32px;">👤</div>
+      <div style="flex:1;">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <input id="amigo-name-input" type="text" value="Mi amigo"
+            style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--gold);background:transparent;border:none;border-bottom:1px solid transparent;outline:none;cursor:pointer;transition:border-color .2s;"
+            onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='transparent';saveAmigoName()"
+            onchange="saveAmigoName()">
+        </div>
+        <div id="amigo-sync-info" style="font-size:11px;color:var(--text-muted);margin-top:3px;"></div>
+      </div>
+      <div id="amigo-hero-stats" style="display:flex;gap:16px;text-align:center;flex-wrap:wrap;"></div>
+      <button class="btn btn-secondary" style="font-size:12px;" onclick="importAmigoTrigger()">🔄 Actualizar</button>
+      <button class="btn btn-secondary" style="font-size:12px;border-color:rgba(239,68,68,.3);color:#fca5a5;" onclick="clearAmigo()">✕ Quitar</button>
+    </div>
+
+    <!-- Cruce de intercambios -->
+    <div class="sec-title" style="margin-bottom:12px;">🔁 INTERCAMBIOS POSIBLES</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;" id="amigo-cruce-grid">
+    </div>
+
+    <!-- Su álbum por equipo -->
+    <div>
+      <div class="sec-title" style="cursor:pointer;user-select:none;" onclick="toggleAmigoAlbum()">
+        📘 SU ÁLBUM <span id="amigo-album-chev" style="font-size:12px;color:var(--text-muted);transition:transform .2s;display:inline-block;">▾</span>
+      </div>
+      <div id="amigo-album-wrap" style="display:none;margin-top:10px;">
+        <div id="amigo-album-list"></div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 
@@ -1336,6 +1478,7 @@ function switchTab(t){
   if(t==='selector')renderTeams();
   if(t==='swap')renderSwapPage();
   if(t==='challenges')renderChallengesList();
+  if(t==='amigos')renderAmigoPage();
 }
 
 function toggleHamburger(){
@@ -1380,7 +1523,7 @@ function updateDashboard(){
   document.getElementById('owned-p').textContent=ownedP;
   document.getElementById('miss-p').textContent=TOTAL-ownedP;
   document.getElementById('rep-p').textContent=repP;
-  const circP=258;document.getElementById('ring-principal').style.strokeDashoffset=circP-(circP*pctP/100);
+  const circP=346;document.getElementById('ring-principal').style.strokeDashoffset=circP-(circP*pctP/100);
 
   // Auxiliar — usar helpers
   let pegadasA=0, paraIntercambiarCnt=0, paraPegarCnt=0, dispTotalA=0;
@@ -1396,7 +1539,7 @@ function updateDashboard(){
   document.getElementById('owned-a').textContent=pegadasA;           // pegadas
   document.getElementById('miss-a').textContent=paraIntercambiarCnt; // para intercambiar
   document.getElementById('rep-a').textContent=paraPegarCnt;         // para pegar
-  const circA=258;document.getElementById('ring-auxiliar').style.strokeDashoffset=circA-(circA*pctA/100);
+  const circA=132;document.getElementById('ring-auxiliar').style.strokeDashoffset=circA-(circA*pctA/100);
 
   // Sugerencias: intercambiar = intercambiar>0; pegar = pegar>0
   const paraIntercambiar=ALL.filter(s=>auxGet(s.num).intercambiar>0);
@@ -3370,12 +3513,422 @@ function toggleChMark(n){S.principal[n]=(S.principal[n]||0)>0?0:1;save();renderC
 function delChallenge(id,e){e.stopPropagation();S.challenges=(S.challenges||[]).filter(c=>c.id!==id);save();renderChallengesList();updateDashIfVis();}
 
 // ============================================================
+// DASHBOARD PROGRESS TOGGLE
+// ============================================================
+let _dashProgOpen=true;
+function toggleDashProgress(){
+  _dashProgOpen=!_dashProgOpen;
+  const wrap=document.getElementById('dash-progress-wrap');
+  const chev=document.getElementById('dash-prog-chev');
+  if(wrap) wrap.style.display=_dashProgOpen?'':'none';
+  if(chev) chev.style.transform=_dashProgOpen?'':'rotate(-90deg)';
+}
+
+// ============================================================
+// FIREBASE CONFIG & SYNC
+// ============================================================
+// ─── PEGÁ ACÁ TU CONFIG DE FIREBASE ───────────────────────
+// Vas a obtener este objeto en Firebase Console → Configuración → Tu app web
+let FB_CONFIG = null; // null = modo sin Firebase (JSON manual)
+// Ejemplo de cómo se ve cuando lo configurás:
+// FB_CONFIG = {
+//   apiKey: "AIza...",
+//   authDomain: "tu-proyecto.firebaseapp.com",
+//   projectId: "tu-proyecto",
+// };
+
+// ─── TU PERFIL ────────────────────────────────────────────
+// 'owner' en tu versión, 'amigo' en la versión de tu amigo
+const MI_PERFIL_ID = typeof MI_PERFIL !== 'undefined' ? MI_PERFIL : 'owner';
+const AMIGO_PERFIL_ID = MI_PERFIL_ID === 'owner' ? 'amigo' : 'owner';
+
+// ─── NOMBRE DEL AMIGO ──────────────────────────────────────
+let amigoData = null; // datos del otro perfil
+let _fbDb = null;     // Firestore instance
+let _syncInterval = null;
+
+async function initFirebase(){
+  if(!FB_CONFIG) return false;
+  try{
+    const app=firebase.initializeApp(FB_CONFIG);
+    _fbDb=firebase.firestore();
+    console.log('Firebase conectado ✓');
+    return true;
+  }catch(e){console.warn('Firebase error:',e);return false;}
+}
+
+async function fbSaveMyData(){
+  if(!_fbDb) return;
+  try{
+    const payload={
+      principal:S.principal,
+      auxiliar:S.auxiliar,
+      updatedAt:new Date().toISOString(),
+      perfil:MI_PERFIL_ID
+    };
+    await _fbDb.collection('perfiles').doc(MI_PERFIL_ID).set(payload);
+  }catch(e){console.warn('fbSave error:',e);}
+}
+
+async function fbLoadAmigo(){
+  if(!_fbDb) return false;
+  try{
+    const doc=await _fbDb.collection('perfiles').doc(AMIGO_PERFIL_ID).get();
+    if(doc.exists){
+      const d=doc.data();
+      amigoData={
+        principal:d.principal||{},
+        auxiliar:d.auxiliar||{},
+        savedAt:d.updatedAt||new Date().toISOString(),
+        name:amigoData?.name||'Mi amigo'
+      };
+      await saveAmigoLocal();
+      return true;
+    }
+  }catch(e){console.warn('fbLoadAmigo error:',e);}
+  return false;
+}
+
+function startAutoSync(){
+  if(_syncInterval) clearInterval(_syncInterval);
+  _syncInterval=setInterval(async()=>{
+    await fbSaveMyData();
+    const updated=await fbLoadAmigo();
+    if(updated){
+      renderAmigoPage();
+      const tab=document.getElementById('tab-amigos');
+      if(tab?.classList.contains('active')) renderAmigoCruce();
+    }
+  }, 2*60*1000); // cada 2 minutos
+}
+
+// ─── LOCAL FALLBACK (cuando no hay Firebase) ───────────────
+async function loadAmigoLocal(){
+  try{
+    const r=await window.storage.get('wc26-amigo');
+    if(r&&r.value){amigoData=JSON.parse(r.value);return;}
+  }catch(e){}
+  try{const b=localStorage.getItem('wc26-amigo');if(b)amigoData=JSON.parse(b);}catch(e){}
+}
+async function saveAmigoLocal(){
+  try{await window.storage.set('wc26-amigo',JSON.stringify(amigoData));}catch(e){}
+  try{localStorage.setItem('wc26-amigo',JSON.stringify(amigoData));}catch(e){}
+}
+// Legacy alias
+async function loadAmigo(){await loadAmigoLocal();}
+async function saveAmigo(){await saveAmigoLocal();}
+
+// Override save() to also push to Firebase
+const _origSave=save;
+async function save(){
+  await _origSave();
+  fbSaveMyData().catch(()=>{}); // fire & forget
+}
+
+// ─── SETUP SCREEN ──────────────────────────────────────────
+function openFirebaseSetup(){
+  const d=document.createElement('div');
+  d.id='fb-setup-overlay';
+  d.style.cssText='position:fixed;inset:0;z-index:800;background:rgba(0,0,0,0.8);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:16px;';
+  d.innerHTML=`
+    <div style="background:#0a1224;border:1px solid var(--border);border-radius:20px;padding:28px;max-width:580px;width:100%;max-height:90vh;overflow-y:auto;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--gold);margin-bottom:4px;">⚙️ CONFIGURAR SINCRONIZACIÓN</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:20px;">Setup único de ~10 minutos. Después todo es automático.</div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        ${['1. Ir a <a href="https://console.firebase.google.com" target="_blank" style="color:var(--P)">console.firebase.google.com</a> e iniciar sesión con Google',
+           '2. Hacer click en <strong style="color:var(--text)">Agregar proyecto</strong> → ponerle un nombre (ej: "album-mundial") → continuar hasta crearlo',
+           '3. En el panel del proyecto, hacer click en el ícono <strong style="color:var(--text)">&lt;/&gt; Web</strong> → registrar la app → copiar el objeto <code style="background:rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;">firebaseConfig</code>',
+           '4. Ir a <strong style="color:var(--text)">Build → Firestore Database</strong> → Crear base de datos → elegir <strong style="color:var(--text)">Modo de prueba</strong> → listo',
+           '5. Pegá el objeto firebaseConfig acá abajo:'].map((s,i)=>`
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:24px;height:24px;border-radius:50%;background:rgba(251,191,36,0.2);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--gold);flex-shrink:0;margin-top:1px;">${i+1}</div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.5;">${s}</div>
+          </div>`).join('')}
+
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--text-muted);margin-bottom:6px;">PEGAR AQUÍ EL OBJETO firebaseConfig</div>
+          <textarea id="fb-config-input" rows="8" placeholder='{
+  "apiKey": "AIza...",
+  "authDomain": "tu-proyecto.firebaseapp.com",
+  "projectId": "tu-proyecto",
+  "storageBucket": "tu-proyecto.appspot.com",
+  "messagingSenderId": "123456789",
+  "appId": "1:123..."
+}' style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;padding:12px;color:var(--text);font-family:monospace;font-size:12px;resize:vertical;outline:none;"></textarea>
+        </div>
+
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--text-muted);margin-bottom:6px;">TU NOMBRE EN ESTA APP</div>
+          <input id="fb-profile-name" type="text" placeholder="ej: Juan" value="${MI_PERFIL_ID==='owner'?'Principal':'Amigo'}"
+            style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--text);font-size:13px;outline:none;">
+        </div>
+
+        <div id="fb-setup-error" style="display:none;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:10px 13px;font-size:12px;color:#fca5a5;"></div>
+
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-secondary" style="flex:1" onclick="document.getElementById('fb-setup-overlay').remove()">Cancelar</button>
+          <button class="btn btn-primary" style="flex:1" onclick="applyFirebaseConfig()">✅ Conectar y sincronizar</button>
+        </div>
+        <div style="font-size:11px;color:var(--text-muted);text-align:center;">
+          📋 Después copiá el HTML y mandáselo a tu amigo. Él hace lo mismo con su nombre de perfil.
+        </div>
+      </div>
+    </div>`;
+  document.body.appendChild(d);
+}
+
+async function applyFirebaseConfig(){
+  const raw=document.getElementById('fb-config-input')?.value?.trim();
+  const errEl=document.getElementById('fb-setup-error');
+  if(!raw){errEl.textContent='Pegá tu configuración de Firebase primero.';errEl.style.display='';return;}
+  try{
+    const cfg=JSON.parse(raw.replace(/(\w+):/g,'"$1":').replace(/'/g,'"'));
+    if(!cfg.projectId||!cfg.apiKey) throw new Error('Falta apiKey o projectId');
+    // Save config
+    localStorage.setItem('wc26-fb-config',JSON.stringify(cfg));
+    FB_CONFIG=cfg;
+    const ok=await initFirebase();
+    if(!ok) throw new Error('No se pudo conectar a Firebase. Revisá la configuración.');
+    // First sync
+    await fbSaveMyData();
+    await fbLoadAmigo();
+    startAutoSync();
+    document.getElementById('fb-setup-overlay')?.remove();
+    renderAmigoPage();
+    toast('🔥 Firebase conectado — sincronización automática activada','success');
+  }catch(e){
+    if(errEl){errEl.textContent='Error: '+e.message;errEl.style.display='';}
+  }
+}
+
+function disconnectFirebase(){
+  localStorage.removeItem('wc26-fb-config');
+  FB_CONFIG=null;_fbDb=null;
+  if(_syncInterval){clearInterval(_syncInterval);_syncInterval=null;}
+  toast('Firebase desconectado','success');
+  renderAmigoPage();
+}
+
+// ─── EXPORT/IMPORT MANUAL (fallback sin Firebase) ──────────
+function exportMisDatos(){
+  const payload={
+    version:2,
+    perfil:MI_PERFIL_ID,
+    exportedAt:new Date().toISOString(),
+    principal:S.principal,
+    auxiliar:S.auxiliar
+  };
+  const b=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(b);
+  a.download='mis-figus-mundial2026.json';
+  a.click();
+  toast('💾 Datos exportados — mandáselos a tu amigo','success');
+}
+
+function importAmigoTrigger(){document.getElementById('amigoFile').click();}
+
+function importAmigoData(e){
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=async ev=>{
+    try{
+      const d=JSON.parse(ev.target.result);
+      if(!d.principal) throw new Error('Formato inválido');
+      amigoData={
+        principal:d.principal||{},
+        auxiliar:d.auxiliar||{},
+        savedAt:d.exportedAt||new Date().toISOString(),
+        name:amigoData?.name||'Mi amigo'
+      };
+      await saveAmigoLocal();
+      renderAmigoPage();
+      toast('👥 Álbum del amigo cargado correctamente','success');
+    }catch(err){
+      toast('❌ Archivo inválido — necesita ser un JSON exportado desde la app','warn');
+    }
+  };
+  r.readAsText(f);e.target.value='';
+}
+
+function saveAmigoName(){
+  const inp=document.getElementById('amigo-name-input');
+  if(!inp||!amigoData)return;
+  amigoData.name=inp.value||'Mi amigo';
+  saveAmigoLocal();
+}
+
+function clearAmigo(){
+  amigoData=null;
+  saveAmigoLocal();
+  renderAmigoPage();
+  toast('✓ Álbum del amigo eliminado','success');
+}
+
+function toggleAmigoAlbum(){
+  const wrap=document.getElementById('amigo-album-wrap');
+  const chev=document.getElementById('amigo-album-chev');
+  if(!wrap)return;
+  const open=wrap.style.display!=='none';
+  wrap.style.display=open?'none':'block';
+  if(chev) chev.style.transform=open?'rotate(-90deg)':'';
+  if(!open) renderAmigoAlbum();
+}
+
+function renderAmigoPage(){
+  const empty=document.getElementById('amigo-empty');
+  const loaded=document.getElementById('amigo-loaded');
+  const fbStatus=document.getElementById('amigo-fb-status');
+
+  // Firebase status indicator
+  if(fbStatus){
+    if(_fbDb){
+      fbStatus.innerHTML=`<span style="color:var(--accent3);font-size:12px;">🔥 Firebase activo — sincronización automática cada 2 min</span>
+        <button class="btn btn-secondary" style="font-size:11px;padding:4px 10px;margin-left:8px;" onclick="disconnectFirebase()">Desconectar</button>`;
+    } else {
+      fbStatus.innerHTML=`<span style="color:var(--text-muted);font-size:12px;">📵 Sin sincronización automática</span>
+        <button class="btn btn-primary" style="font-size:11px;padding:4px 12px;margin-left:8px;" onclick="openFirebaseSetup()">⚙️ Configurar Firebase</button>`;
+    }
+  }
+
+  if(!amigoData){
+    if(empty) empty.style.display='';
+    if(loaded) loaded.style.display='none';
+    return;
+  }
+  if(empty) empty.style.display='none';
+  if(loaded) loaded.style.display='';
+
+  const nameInp=document.getElementById('amigo-name-input');
+  if(nameInp) nameInp.value=amigoData.name||'Mi amigo';
+
+  const syncEl=document.getElementById('amigo-sync-info');
+  if(syncEl&&amigoData.savedAt){
+    const d=new Date(amigoData.savedAt);
+    const diff=Math.round((Date.now()-d.getTime())/60000);
+    const cuando=diff<2?'hace un momento':diff<60?`hace ${diff} min`:`${d.toLocaleDateString('es-AR')} ${d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'})}`;
+    syncEl.innerHTML=`Última sync: <strong style="color:var(--text)">${cuando}</strong>${_fbDb?' · auto':''}`;
+  }
+
+  // Hero stats
+  const aP=amigoData.principal||{};
+  const aPegadasP=ALL.filter(s=>(aP[s.num]||0)>0).length;
+  const aFaltanP=TOTAL-aPegadasP;
+  const heroEl=document.getElementById('amigo-hero-stats');
+  if(heroEl) heroEl.innerHTML=`
+    <div style="text-align:center;padding:8px 14px;background:rgba(0,212,255,0.08);border-radius:10px;border:1px solid rgba(0,212,255,0.2);">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--P)">${Math.round(aPegadasP/TOTAL*100)}%</div>
+      <div style="font-size:10px;color:var(--text-muted)">Completado</div>
+    </div>
+    <div style="text-align:center;padding:8px 14px;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--accent2)">${aFaltanP}</div>
+      <div style="font-size:10px;color:var(--text-muted)">Le faltan</div>
+    </div>`;
+
+  renderAmigoCruce();
+}
+
+function renderAmigoCruce(){
+  const grid=document.getElementById('amigo-cruce-grid');
+  if(!grid||!amigoData)return;
+  const aP=amigoData.principal||{};
+
+  // Él te puede dar: él tiene en pegar (ya en su principal) Y vos no tenés en tu principal
+  // Según modelo: del amigo, sus "pegar>0" son sus disponibles para darte
+  const aA=amigoData.auxiliar||{};
+  const elTeDa=ALL.filter(s=>{
+    const av=aA[s.num];
+    const suPegar=av&&typeof av==='object'?av.pegar||0:(typeof av==='number'?0:0);
+    return suPegar>0 && (S.principal[s.num]||0)===0;
+  });
+
+  // Vos le podés dar: tenés pegar>0 en tu aux Y él no tiene en principal
+  const vosDas=ALL.filter(s=>{
+    return auxGet(s.num).pegar>0 && (aP[s.num]||0)===0;
+  });
+
+  function mkList(stks,emptyMsg,col){
+    if(!stks.length) return `<div style="padding:20px;text-align:center;font-size:12px;color:var(--text-muted)">${emptyMsg}</div>`;
+    const byTeam={};
+    stks.forEach(s=>{if(!byTeam[s.teamId||'_'])byTeam[s.teamId||'_']={name:s.team,items:[]};byTeam[s.teamId||'_'].items.push(s);});
+    return Object.values(byTeam).sort((a,b)=>a.name.localeCompare(b.name)).map(g=>`
+      <div style="margin-bottom:8px;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;display:flex;align-items:center;gap:5px;">
+          ${g.items[0]?.teamId&&FLAG_CODES[g.items[0].teamId]?flagImg(g.items[0].teamId,12):''}${g.name}
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;">
+          ${g.items.map(s=>`<span title="${s.name}" style="display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,0.04);border:1px solid ${col};border-radius:6px;padding:3px 8px;">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:12px;color:${col}">${s.num}</span>
+            <span style="font-size:9px;color:var(--text-muted)">${s.name.slice(0,10)}</span>
+          </span>`).join('')}
+        </div>
+      </div>`).join('');
+  }
+
+  grid.innerHTML=`
+    <div class="amigo-cruce-col">
+      <div class="amigo-cruce-hdr" style="color:var(--accent3);">
+        ✅ ÉL TE PUEDE DAR
+        <span style="float:right;background:rgba(16,185,129,0.2);border-radius:10px;padding:1px 7px;">${elTeDa.length}</span>
+      </div>
+      <div class="amigo-cruce-body">${mkList(elTeDa,'No tiene nada disponible que te falte 👍','var(--accent3)')}</div>
+    </div>
+    <div class="amigo-cruce-col">
+      <div class="amigo-cruce-hdr" style="color:var(--gold);">
+        🔄 VOS LE PODÉS DAR
+        <span style="float:right;background:rgba(251,191,36,0.2);border-radius:10px;padding:1px 7px;">${vosDas.length}</span>
+      </div>
+      <div class="amigo-cruce-body">${mkList(vosDas,'No tenés nada disponible que le falte a él','var(--gold)')}</div>
+    </div>`;
+}
+
+function renderAmigoAlbum(){
+  const el=document.getElementById('amigo-album-list');
+  if(!el||!amigoData)return;
+  const aP=amigoData.principal||{};
+  el.innerHTML=TEAMS.map(t=>{
+    const stks=teamStickers(t);
+    const owned=stks.filter(n=>(aP[n]||0)>0).length;
+    const pct=Math.round(owned/stks.length*100);
+    const chips=stks.map(n=>{
+      const has=(aP[n]||0)>0;
+      const info=SMAP[n]||{};
+      return `<span title="${info.name||n}" style="display:inline-flex;align-items:center;border-radius:6px;padding:2px 7px;font-size:11px;font-family:'Bebas Neue',sans-serif;letter-spacing:.3px;margin:2px;background:${has?'rgba(0,212,255,0.12)':'rgba(255,255,255,0.03)'};border:1px solid ${has?'var(--P)':'rgba(255,255,255,0.08)'};color:${has?'var(--P)':'var(--text-muted)'};">${n}</span>`;
+    }).join('');
+    return `<div class="amigo-album-team">
+      <div class="amigo-album-team-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+        ${t.id&&FLAG_CODES[t.id]?flagImg(t.id,16):''}
+        <span style="flex:1;font-size:13px;font-weight:600">${t.name}</span>
+        <span style="font-size:11px;color:${pct===100?'var(--accent3)':pct>50?'var(--gold)':'var(--text-muted)'}">${owned}/${stks.length}</span>
+      </div>
+      <div style="display:none;padding:8px 14px 12px;">${chips}</div>
+    </div>`;
+  }).join('');
+}
+
+// ============================================================
 // INIT
 // ============================================================
 async function init(){
   await load();normalize();
+  await loadAmigoLocal();
+  // Try to restore Firebase config from localStorage
+  try{
+    const saved=localStorage.getItem('wc26-fb-config');
+    if(saved){
+      FB_CONFIG=JSON.parse(saved);
+      const ok=await initFirebase();
+      if(ok){
+        await fbSaveMyData();
+        await fbLoadAmigo();
+        startAutoSync();
+      }
+    }
+  }catch(e){console.warn('Firebase restore error:',e);}
   updateDashboard();
   renderSwapPage();
+  renderAmigoPage();
 }
 init();
 </script>
