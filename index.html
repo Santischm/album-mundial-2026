@@ -39,37 +39,58 @@ main{position:relative;z-index:1;}
 .btn-secondary:hover{border-color:var(--text-dim);color:var(--text);}
 
 /* DASHBOARD */
+/* ── Dashboard hero ── */
+.dash-hero{display:flex;flex-direction:column;gap:14px;margin-bottom:4px;}
+.dash-hero-principal{display:flex;align-items:center;gap:20px;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 24px;}
+.dash-hero-ring-wrap{position:relative;flex-shrink:0;}
+.dash-hero-ring-wrap svg{display:block;}
+.dash-hero-ring-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.dash-hero-pct{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--P);line-height:1;}
+.dash-hero-nums{flex:1;}
+.dash-hero-miss{display:flex;align-items:flex-end;gap:6px;margin-bottom:12px;}
+.dash-hero-sub-stats{display:flex;gap:16px;flex-wrap:wrap;}
+.dash-hero-sub-stat{display:flex;flex-direction:column;align-items:flex-start;gap:1px;}
+.dash-hero-sub-stat span:first-child{font-family:'Bebas Neue',sans-serif;font-size:22px;line-height:1;}
+.dash-hero-sub-stat span:last-child{font-size:10px;color:var(--text-muted);letter-spacing:.3px;}
+.dash-aux-strip{display:flex;align-items:center;gap:14px;background:rgba(255,107,53,0.06);border:1px solid rgba(255,107,53,0.2);border-radius:12px;padding:12px 18px;}
+.dash-aux-ring-wrap{position:relative;flex-shrink:0;}
+.dash-aux-stats{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--text-muted);}
+.dash-aux-stats strong{font-size:15px;font-family:'Bebas Neue',sans-serif;}
+.dash-aux-actions{margin-left:auto;display:flex;gap:6px;}
+.dash-quick-btn{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:8px;padding:6px 12px;color:var(--text-dim);font-size:12px;font-family:'Outfit',sans-serif;cursor:pointer;transition:all .15s;}
+.dash-quick-btn:hover{background:rgba(255,255,255,0.1);color:var(--text);}
+/* ── Amigos ── */
+.amigo-cruce-col{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.amigo-cruce-hdr{padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:1px;border-bottom:1px solid var(--border);}
+.amigo-cruce-body{padding:10px 12px;max-height:320px;overflow-y:auto;}
+.amigo-stk-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:12px;}
+.amigo-stk-row:last-child{border-bottom:none;}
+.amigo-stk-num{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--gold);min-width:52px;}
+.amigo-album-team{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden;}
+.amigo-album-team-hdr{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:pointer;}
+.amigo-album-team-hdr:hover{background:rgba(255,255,255,0.03);}
+
 .dash-title{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:4px;line-height:1;background:linear-gradient(135deg,#fff 0%,var(--gold) 60%,#f97316 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .dash-sub{color:var(--text-muted);font-size:12px;margin-top:4px;margin-bottom:28px;}
-.albums-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px;}
-.album-card{border-radius:16px;padding:24px;display:flex;align-items:center;gap:22px;position:relative;overflow:hidden;backdrop-filter:blur(12px);}
-.album-card.principal{background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(14,165,233,0.04));border:1px solid rgba(0,212,255,0.3);}
-.album-card.auxiliar{background:linear-gradient(135deg,rgba(255,107,53,0.08),rgba(249,115,22,0.04));border:1px solid rgba(255,107,53,0.3);}
+
 .album-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
 .album-card.principal::before{background:linear-gradient(90deg,var(--P),#38bdf8);}
 .album-card.auxiliar::before{background:linear-gradient(90deg,var(--A),#fb923c);}
-.ring-wrap{position:relative;flex-shrink:0;}
+
 .ring-wrap svg{transform:rotate(-90deg);}
-.ring-bg{fill:none;stroke:rgba(255,255,255,0.07);stroke-width:8;}
-.ring-fill{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1);}
-.principal .ring-fill{stroke:var(--P);filter:drop-shadow(0 0 6px rgba(0,212,255,0.5));}
-.auxiliar .ring-fill{stroke:var(--A);filter:drop-shadow(0 0 6px rgba(255,107,53,0.5));}
-.ring-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.ring-pct{font-family:'Bebas Neue',sans-serif;font-size:30px;line-height:1;}
-.principal .ring-pct{color:var(--P);}
-.auxiliar .ring-pct{color:var(--A);}
-.ring-label{font-size:9px;color:var(--text-muted);letter-spacing:1px;}
-.album-info h3{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;margin-bottom:10px;}
-.principal .album-info h3{color:var(--P);}
-.auxiliar .album-info h3{color:var(--A);}
-.album-stats{display:flex;gap:18px;}
+
+.principal 
+.auxiliar 
+
+.principal 
+.auxiliar 
+
+.principal 
+.auxiliar 
+
 .album-stat .val{font-family:'Bebas Neue',sans-serif;font-size:22px;}
 .album-stat .lbl{font-size:10px;color:var(--text-muted);}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:22px;}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;backdrop-filter:blur(10px);}
-.stat-card .icon{font-size:22px;margin-bottom:8px;}
-.stat-card .value{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--gold);line-height:1;}
-.stat-card .label{font-size:10px;color:var(--text-muted);margin-top:3px;}
+
 /* ── Trade suggestions: compact chip view ── */
 .trd-section{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:10px;}
 .trd-sec-hdr{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:pointer;background:rgba(255,255,255,0.02);user-select:none;transition:background .15s;}
@@ -367,8 +388,7 @@ main{position:relative;z-index:1;}
 .swap-type-icon{font-size:32px;margin-bottom:6px;}
 .swap-type-title{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:1px;}
 .swap-type-sub{font-size:11px;color:var(--text-muted);margin-top:2px;}
-.swap-panel{display:none;}
-.swap-panel.active{display:block;}
+
 .self-swap-row{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:start;margin-bottom:18px;}
 .self-col h4{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;margin-bottom:10px;}
 .self-col.p h4{color:var(--P);}
@@ -593,21 +613,21 @@ main{position:relative;z-index:1;}
   .dash-sub{font-size:10px;}
 
   /* Álbumes: apilados, anillos más chicos — */
-  .albums-row{grid-template-columns:1fr;gap:10px;margin-bottom:14px;}
-  .album-card{padding:12px 14px;display:flex;align-items:center;gap:12px;}
-  .album-card .ring-wrap{flex-shrink:0;}
+  
+  
+  .album-card 
   .album-card .ring-wrap svg{width:68px;height:68px;}
-  .album-info h3{font-size:13px;margin-bottom:6px;}
-  .album-stats{gap:10px;flex-wrap:wrap;}
+  
+  
   .album-stat .val{font-size:18px;}
   .album-stat .lbl{font-size:8px;}
 
   /* Stats: 2×2 — */
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px;}
-  .stat-card{padding:11px 10px;}
-  .stat-card .icon{font-size:18px;margin-bottom:4px;}
-  .stat-card .value{font-size:24px;}
-  .stat-card .label{font-size:9px;}
+  
+  
+  
+  
+  
 
   /* Leyenda y modos de vista — */
   .legend{display:none;}
@@ -662,11 +682,7 @@ main{position:relative;z-index:1;}
   .mini-pct{font-size:8px;}
 
   /* ─ INTERCAMBIOS ─ */
-  .swap-type-row{flex-direction:column;gap:8px;margin-bottom:14px;}
-  .swap-type-card{padding:12px 14px;display:flex;align-items:center;gap:14px;text-align:left;}
-  .swap-type-icon{font-size:22px;margin-bottom:0;flex-shrink:0;}
-  .swap-type-title{font-size:14px;}
-  .swap-type-sub{font-size:10px;}
+  
 
   .self-swap-row{grid-template-columns:1fr;gap:10px;}
   .self-arrow{display:none;}
@@ -688,7 +704,7 @@ main{position:relative;z-index:1;}
 
   /* Pending cards — */
   .pending-card{padding:14px;}
-  .pending-body{flex-direction:column;}
+  
 
   /* ─ LISTADO COMPLETO ─ */
   .list-controls{flex-wrap:wrap;gap:6px;}
@@ -723,9 +739,10 @@ main{position:relative;z-index:1;}
 
 <nav>
   <div class="nav-logo">⚽ MUNDIAL 26</div>
-  <div class="nav-tab active" data-tab="dashboard" onclick="switchTab('dashboard')">📊 Dashboard</div>
+  <div class="nav-tab" data-tab="dashboard" onclick="switchTab('dashboard')">📊 Dashboard</div>
   <div class="nav-tab" data-tab="selector" onclick="switchTab('selector')">🗂️ Mis Figuritas</div>
   <div class="nav-tab" data-tab="swap" onclick="switchTab('swap')">🔀 Intercambios</div>
+  <div class="nav-tab" data-tab="amigos" onclick="switchTab('amigos')">👥 Amigos</div>
   <div class="nav-tab" data-tab="challenges" onclick="switchTab('challenges')">🏅 Retos</div>
   <div class="nav-right">
     <span class="save-ind" id="saveInd">✓ Guardado</span>
@@ -758,6 +775,10 @@ main{position:relative;z-index:1;}
       <span class="ham-icon">🔀</span>
       <div class="ham-info"><div class="ham-name">Intercambios</div><div class="ham-desc">Gestionar intercambios</div></div>
     </div>
+    <div class="ham-tab" data-tab="amigos" onclick="switchTab('amigos');closeHamburger()">
+      <span class="ham-icon">👥</span>
+      <div class="ham-info"><div class="ham-name">Amigos</div><div class="ham-desc">Comparar álbumes y cruzar figuritas</div></div>
+    </div>
     <div class="ham-tab" data-tab="challenges" onclick="switchTab('challenges');closeHamburger()">
       <span class="ham-icon">🏅</span>
       <div class="ham-info"><div class="ham-name">Retos</div><div class="ham-desc">Colecciones especiales</div></div>
@@ -773,57 +794,98 @@ main{position:relative;z-index:1;}
 <!-- DASHBOARD -->
 <div class="tab-panel active" id="tab-dashboard">
 <div class="page">
-  <div class="dash-title">MI ÁLBUM 2026</div>
-  <div class="dash-sub">FIFA World Cup · USA · México · Canadá · 48 selecciones</div>
-  <div class="albums-row">
-    <div class="album-card principal">
-      <div class="ring-wrap"><svg width="98" height="98" viewBox="0 0 98 98"><circle class="ring-bg" cx="49" cy="49" r="41"/><circle class="ring-fill" cx="49" cy="49" r="41" id="ring-principal" stroke-dasharray="258" stroke-dashoffset="258"/></svg>
-        <div class="ring-text"><div class="ring-pct" id="pct-p">0%</div><div class="ring-label">COMPLETADO</div></div>
+
+  <!-- ── HERO ── -->
+  <div class="dash-hero">
+    <!-- Principal: big ring + key numbers -->
+    <div class="dash-hero-principal">
+      <div class="dash-hero-ring-wrap">
+        <svg width="130" height="130" viewBox="0 0 130 130">
+          <circle class="ring-bg" cx="65" cy="65" r="55" stroke-width="10"/>
+          <circle class="ring-fill" cx="65" cy="65" r="55" id="ring-principal"
+            stroke-dasharray="346" stroke-dashoffset="346" stroke-width="10"
+            stroke-linecap="round" transform="rotate(-90 65 65)"/>
+        </svg>
+        <div class="dash-hero-ring-text">
+          <div class="dash-hero-pct" id="pct-p">0%</div>
+          <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;">PRINCIPAL</div>
+        </div>
       </div>
-      <div class="album-info"><h3>📘 ÁLBUM PRINCIPAL</h3>
-        <div class="album-stats">
-          <div class="album-stat"><div class="val" id="owned-p" style="color:var(--P)">0</div><div class="lbl">PEGADAS</div></div>
-          <div class="album-stat"><div class="val" id="miss-p" style="color:var(--accent2)">—</div><div class="lbl">FALTAN</div></div>
-          <div class="album-stat"><div class="val" id="rep-p" style="color:var(--gold)">0</div><div class="lbl">REPETIDAS</div></div>
+      <div class="dash-hero-nums">
+        <div class="dash-hero-miss">
+          <span id="miss-p" style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--accent2);line-height:1;">—</span>
+          <span style="font-size:13px;color:var(--text-muted);margin-left:6px;line-height:1.3;">figuritas<br>te faltan</span>
+        </div>
+        <div class="dash-hero-sub-stats">
+          <div class="dash-hero-sub-stat"><span id="owned-p" style="color:var(--P)">0</span><span>pegadas</span></div>
+          <div class="dash-hero-sub-stat"><span id="rep-p" style="color:var(--gold)">0</span><span>repetidas en P</span></div>
+          <div class="dash-hero-sub-stat"><span id="stat-teams" style="color:var(--accent3)">0</span><span>equipos completos</span></div>
         </div>
       </div>
     </div>
-    <div class="album-card auxiliar">
-      <div class="ring-wrap"><svg width="98" height="98" viewBox="0 0 98 98"><circle class="ring-bg" cx="49" cy="49" r="41"/><circle class="ring-fill" cx="49" cy="49" r="41" id="ring-auxiliar" stroke-dasharray="258" stroke-dashoffset="258"/></svg>
-        <div class="ring-text"><div class="ring-pct" id="pct-a">0%</div><div class="ring-label">PEGADAS</div></div>
-      </div>
-      <div class="album-info"><h3>🟠 ÁLBUM AUXILIAR</h3>
-        <div class="album-stats">
-          <div class="album-stat"><div class="val" id="owned-a" style="color:var(--A)">0</div><div class="lbl">PEGADAS</div></div>
-          <div class="album-stat"><div class="val" id="miss-a" style="color:var(--accent2)">0</div><div class="lbl">P/INTERCAMBIAR</div></div>
-          <div class="album-stat"><div class="val" id="rep-a" style="color:var(--accent3)">0</div><div class="lbl">P/PEGAR</div></div>
+
+    <!-- Auxiliar: compact strip -->
+    <div class="dash-aux-strip">
+      <div class="dash-aux-ring-wrap">
+        <svg width="54" height="54" viewBox="0 0 54 54">
+          <circle class="ring-bg" cx="27" cy="27" r="21" stroke-width="6"/>
+          <circle class="ring-fill" cx="27" cy="27" r="21" id="ring-auxiliar"
+            stroke-dasharray="132" stroke-dashoffset="132" stroke-width="6"
+            stroke-linecap="round" transform="rotate(-90 27 27)"/>
+        </svg>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+          <span id="pct-a" style="font-size:11px;font-weight:700;color:var(--A)">0%</span>
         </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--A);margin-bottom:5px;letter-spacing:.5px;">🟠 AUXILIAR</div>
+        <div class="dash-aux-stats">
+          <span><strong id="owned-a" style="color:var(--A)">0</strong> pegadas</span>
+          <span><strong id="miss-a" style="color:var(--gold)">0</strong> p/intercambiar</span>
+          <span><strong id="rep-a" style="color:var(--accent3)">0</strong> p/pegar</span>
+        </div>
+      </div>
+      <!-- Quick actions -->
+      <div class="dash-aux-actions">
+        <button class="dash-quick-btn" onclick="switchTab('swap')" title="Intercambios pendientes">
+          ⏳ <span id="stat-pending">0</span>
+        </button>
+        <button class="dash-quick-btn" onclick="exportData()" title="Exportar mis datos">
+          💾
+        </button>
       </div>
     </div>
   </div>
-  <div class="stats-grid">
-    <div class="stat-card"><div class="icon">🔄</div><div class="value" id="stat-trades">0</div><div class="label">Disponibles en Aux para intercambiar</div></div>
-    <div class="stat-card"><div class="icon">✅</div><div class="value" id="stat-teams">0</div><div class="label">Selecciones completas (Principal)</div></div>
-    <div class="stat-card"><div class="icon">⏳</div><div class="value" id="stat-pending">0</div><div class="label">Solicitudes pendientes</div></div>
-    <div class="stat-card"><div class="icon">🏅</div><div class="value" id="stat-chal">0</div><div class="label">Retos completados</div></div>
+
+  <!-- ── SUGERENCIAS ── -->
+  <div class="trade-section" style="margin-top:16px;">
+    <div class="sec-title" style="cursor:pointer;user-select:none;" onclick="toggleDashSugerencias()">
+      💡 SUGERENCIAS <span class="trade-badge" id="trade-badge">0</span>
+      <span id="dash-sug-chev" style="font-size:12px;color:var(--text-muted);transition:transform .2s;display:inline-block;margin-left:6px;transform:rotate(-90deg);">▾</span>
+    </div>
+    <div id="dash-sug-wrap" style="display:none;">
+      <div id="trade-list"><div class="no-data"><div style="font-size:32px;margin-bottom:8px">🎴</div>No hay sugerencias todavía.</div></div>
+    </div>
   </div>
-  <div class="trade-section">
-    <div class="sec-title">💡 SUGERENCIAS <span class="trade-badge" id="trade-badge">0</span></div>
-    <div id="trade-list"><div class="no-data"><div style="font-size:32px;margin-bottom:8px">🎴</div>No hay intercambios disponibles.</div></div>
+
+  <!-- ── PROGRESO (colapsable) ── -->
+  <div style="margin-top:8px;">
+    <div class="sec-title" style="cursor:pointer;user-select:none;" onclick="toggleDashProgress()">
+      📈 PROGRESO POR EQUIPO <span id="dash-prog-chev" style="font-size:12px;color:var(--text-muted);transition:transform .2s;display:inline-block;">▾</span>
+    </div>
+    <div id="dash-progress-wrap">
+      <div class="view-mode-bar">
+        <button class="vm-btn active" onclick="setViewMode('groups',this)">🗂️ Por Grupo</button>
+        <button class="vm-btn" onclick="setViewMode('team',this)">🏳️ Por Equipo</button>
+        <button class="vm-btn" onclick="setViewMode('list',this)">📋 Listado Completo</button>
+      </div>
+      <div id="progress-view"></div>
+    </div>
   </div>
-  <div class="legend">
-    <div class="leg-dot" style="background:var(--P)"></div><span style="color:var(--P)">Principal</span>
-    <div class="leg-dot" style="background:var(--accent3)"></div><span style="color:var(--accent3)">Ambos / Pegada aux</span>
-    <div class="leg-dot" style="background:rgba(0,212,255,0.5);border:1px dashed var(--P)"></div><span style="color:var(--text-muted)">Lista para pegar en aux</span>
-    <div class="leg-dot" style="background:var(--A)"></div><span style="color:var(--A)">Para intercambiar</span>
-  </div>
-  <div class="view-mode-bar">
-    <button class="vm-btn active" onclick="setViewMode('groups',this)">🗂️ Por Grupo</button>
-    <button class="vm-btn" onclick="setViewMode('continent',this)">🌍 Por Continente</button>
-    <button class="vm-btn" onclick="setViewMode('team',this)">🏳️ Por Equipo</button>
-    <button class="vm-btn" onclick="setViewMode('list',this)">📋 Listado Completo</button>
-  </div>
-  <div id="progress-view"></div>
+
+  <!-- hidden stat ids still needed by updateDashboard -->
+  <span id="stat-trades" style="display:none">0</span>
+  <span id="stat-chal" style="display:none">0</span>
 </div>
 </div>
 
@@ -941,28 +1003,7 @@ main{position:relative;z-index:1;}
 
   <!-- Hidden inputs still needed for wizard state -->
   <input id="w-contact" type="hidden">
-  <div style="display:none">
-    <div class="swap-list" id="sl-p"></div>
-    <div class="swap-list" id="sl-a"></div>
-    <div class="swap-list" id="wl-p"></div>
-    <div class="swap-list" id="wl-a"></div>
-    <div class="swap-list" id="wl-r"></div>
-    <div id="sum-p"></div><div id="sum-a"></div>
-    <div id="wsum-p"></div><div id="wsum-a"></div><div id="wsum-r"></div>
-    <span id="wsum-r-label"></span>
-    <button id="recv-alb-p"></button><button id="recv-alb-a"></button><button id="recv-alb-both"></button>
-    <button id="recv-mode-exact"></button><button id="recv-mode-team"></button>
-    <div id="recv-exact-panel"></div>
-    <div id="recv-team-panel">
-      <div id="recv-team-picker-display"></div>
-      <span id="recv-team-picker-flag"></span>
-      <span id="recv-team-picker-name"></span>
-      <div id="recv-team-dropdown"><div id="recv-team-list"></div><input id="recv-team-search"></div>
-      <div id="recv-team-preview"></div>
-    </div>
-    <input id="ss-p"><input id="ss-a">
-    <input id="w-p-search"><input id="w-a-search"><input id="w-recv-search">
-  </div>
+
 </div>
 </div>
 
@@ -971,7 +1012,7 @@ main{position:relative;z-index:1;}
   <div id="wizard-box" style="background:#0a1224;border:1px solid var(--border);border-radius:20px;width:100%;max-width:640px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 90px rgba(0,0,0,.8);">
     <!-- Wizard header -->
     <div style="padding:18px 22px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
-      <div id="wz-back-btn" onclick="wizardBack()" style="display:none;width:32px;height:32px;border-radius:8px;border:1px solid var(--border);cursor:pointer;display:none;align-items:center;justify-content:center;color:var(--text-muted);font-size:16px;flex-shrink:0;background:rgba(255,255,255,0.04);transition:all .15s;" onmouseenter="this.style.borderColor='var(--text-dim)'" onmouseleave="this.style.borderColor='var(--border)'">‹</div>
+      <div id="wz-back-btn" onclick="wizardBack()" style="display:none;width:32px;height:32px;border-radius:8px;border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text-muted);font-size:16px;flex-shrink:0;background:rgba(255,255,255,0.04);transition:all .15s;" onmouseenter="this.style.borderColor='var(--text-dim)'" onmouseleave="this.style.borderColor='var(--border)'">‹</div>
       <div style="flex:1;">
         <div id="wz-title" style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--gold)">NUEVA SOLICITUD</div>
         <div id="wz-subtitle" style="font-size:11px;color:var(--text-muted);margin-top:1px;"></div>
@@ -1049,6 +1090,93 @@ main{position:relative;z-index:1;}
   </div>
   <div class="sec-title">🏅 MIS RETOS</div>
   <div id="ch-list"><div class="no-data"><span style="font-size:11px">No hay retos creados.</span></div></div>
+</div>
+</div>
+<!-- AMIGOS -->
+<div class="tab-panel" id="tab-amigos">
+<div class="page">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:22px;">
+    <div>
+      <div class="dash-title" style="font-size:32px;margin-bottom:2px;">AMIGOS</div>
+      <div class="dash-sub" style="margin-bottom:0;">Compará álbumes y encontrá intercambios</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <button class="btn btn-secondary" style="display:flex;align-items:center;gap:6px;" onclick="exportMisDatos()">💾 Exportar mis datos</button>
+      <button class="btn btn-primary" style="display:flex;align-items:center;gap:6px;" onclick="openLoadAmigoModal()">📂 Cargar álbum de amigo</button>
+      <input type="file" id="amigoFile" accept=".json" style="display:none" onchange="importAmigoData(event)">
+    </div>
+  </div>
+  <!-- Sin amigo cargado -->
+  <div id="amigo-empty" style="">
+    <div style="background:var(--surface);border:2px dashed var(--border);border-radius:16px;padding:40px 24px;text-align:center;">
+      <div style="font-size:48px;margin-bottom:12px;">👥</div>
+      <div style="font-size:16px;font-weight:600;color:var(--text);margin-bottom:8px;">Todavía no cargaste el álbum de tu amigo</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-bottom:20px;max-width:400px;margin-left:auto;margin-right:auto;">
+        Pedile que exporte sus datos desde su app (💾 Exportar mis datos) y los suba a la carpeta compartida de GitHub. Después cargalos con la URL raw o como archivo.
+      </div>
+      <button class="btn btn-primary" style="font-size:14px;padding:11px 24px;" onclick="openLoadAmigoModal()">📂 Cargar álbum de amigo</button>
+    </div>
+  </div>
+
+  <!-- Con amigo cargado -->
+  <div id="amigo-loaded" style="display:none;">
+    <!-- Header del amigo -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <div style="font-size:32px;">👤</div>
+      <div style="flex:1;">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <input id="amigo-name-input" type="text" value="Mi amigo"
+            style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--gold);background:transparent;border:none;border-bottom:1px solid transparent;outline:none;cursor:pointer;transition:border-color .2s;"
+            onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='transparent';saveAmigoName()"
+            onchange="saveAmigoName()">
+        </div>
+        <div id="amigo-sync-info" style="font-size:11px;color:var(--text-muted);margin-top:3px;"></div>
+      </div>
+      <div id="amigo-hero-stats" style="display:flex;gap:16px;text-align:center;flex-wrap:wrap;"></div>
+      <button id="amigo-refresh-btn" class="btn btn-secondary" style="font-size:12px;" onclick="refreshAmigoFromUrl()">🔄 Actualizar desde GitHub</button>
+      <button class="btn btn-secondary" style="font-size:12px;" onclick="openLoadAmigoModal()">📂 Cambiar fuente</button>
+      <button class="btn btn-secondary" style="font-size:12px;border-color:rgba(239,68,68,.3);color:#fca5a5;" onclick="clearAmigo()">✕ Quitar</button>
+    </div>
+
+    <!-- Cruce de intercambios (colapsable) -->
+    <div style="margin-bottom:16px;">
+      <div class="sec-title" style="cursor:pointer;user-select:none;" onclick="toggleAmigoCruce()">
+        🔁 INTERCAMBIOS POSIBLES <span class="trade-badge" id="amigo-cruce-badge">0</span>
+        <span id="amigo-cruce-chev" style="font-size:12px;color:var(--text-muted);transition:transform .2s;display:inline-block;margin-left:6px;">▾</span>
+      </div>
+      <div id="amigo-cruce-wrap" style="margin-top:12px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" id="amigo-cruce-grid"></div>
+      </div>
+    </div>
+
+    <!-- Su álbum — misma vista que dashboard -->
+    <div>
+      <div class="sec-title" style="cursor:pointer;user-select:none;" onclick="toggleAmigoAlbum()">
+        📘 SU ÁLBUM <span id="amigo-album-chev" style="font-size:12px;color:var(--text-muted);transition:transform .2s;display:inline-block;">▾</span>
+      </div>
+      <div id="amigo-album-wrap" style="margin-top:10px;">
+        <!-- Controls row — same style as full list -->
+        <div class="list-controls" style="margin-bottom:12px;">
+          <input class="list-search" id="amigo-fl-search" type="text" placeholder="🔍 Buscar selección..."
+            oninput="renderAmigoAlbum()"
+            style="flex:1;min-width:160px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:9px 13px;color:var(--text);font-family:'Outfit',sans-serif;font-size:13px;outline:none;">
+          <select id="amigo-fl-sort" class="sort-select" onchange="renderAmigoAlbum()">
+            <option value="group">Por Grupo</option>
+            <option value="alpha">Alfabético</option>
+            <option value="pct_p">% completado ↓</option>
+            <option value="missing_p">Más faltantes ↓</option>
+            <option value="fifa">Ranking FIFA</option>
+          </select>
+          <span id="amigo-fl-count" style="font-size:11px;color:var(--text-muted);white-space:nowrap;align-self:center;">48 selecciones</span>
+        </div>
+        <div class="view-mode-bar" id="amigo-view-mode-bar" style="margin-bottom:12px;">
+          <button class="vm-btn active" onclick="setAmigoViewMode('list',this)">📋 Listado Completo</button>
+          <button class="vm-btn" onclick="setAmigoViewMode('team',this)">🏳️ Por Equipo</button>
+        </div>
+        <div id="amigo-album-list"></div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 
@@ -1320,8 +1448,35 @@ function importTrigger(){document.getElementById('importFile').click();}
 function importData(e){
   const f=e.target.files[0];if(!f)return;
   const r=new FileReader();
-  r.onload=async ev=>{try{S=JSON.parse(ev.target.result);normalize();await save();updateDashboard();renderTeams();renderSwapPage();renderChallengesList();toast('📂 Datos importados','success');}catch{toast('❌ Archivo inválido','warn');}};
-  r.readAsText(f);e.target.value='';
+  r.onload=async ev=>{
+    try{
+      const raw=JSON.parse(ev.target.result);
+      // Accept both direct S format and wrapped {version, principal, auxiliar, ...} format
+      const data = (raw.principal !== undefined) ? raw : null;
+      if(!data) throw new Error('El archivo no contiene datos de álbum válidos.');
+
+      // Merge carefully — never blow away keys that might exist
+      S.principal    = data.principal    || {};
+      S.auxiliar     = data.auxiliar     || {};
+      S.swapRequests = data.swapRequests || [];
+      S.challenges   = data.challenges   || [];
+
+      normalize();
+      await save();
+      // Re-render everything
+      updateDashboard();
+      if(document.getElementById('tab-selector').classList.contains('active')) renderTeams();
+      renderSwapPage();
+      renderChallengesList();
+      if(typeof renderAmigoPage==='function') renderAmigoPage();
+      toast('📂 Datos importados correctamente','success');
+    }catch(err){
+      console.error('importData error:', err);
+      toast('❌ ' + (err.message||'Archivo inválido'), 'warn');
+    }
+  };
+  r.readAsText(f);
+  e.target.value=''; // reset so same file can be re-imported
 }
 // ============================================================
 function switchTab(t){
@@ -1336,6 +1491,7 @@ function switchTab(t){
   if(t==='selector')renderTeams();
   if(t==='swap')renderSwapPage();
   if(t==='challenges')renderChallengesList();
+  if(t==='amigos')renderAmigoPage();
 }
 
 function toggleHamburger(){
@@ -1380,7 +1536,7 @@ function updateDashboard(){
   document.getElementById('owned-p').textContent=ownedP;
   document.getElementById('miss-p').textContent=TOTAL-ownedP;
   document.getElementById('rep-p').textContent=repP;
-  const circP=258;document.getElementById('ring-principal').style.strokeDashoffset=circP-(circP*pctP/100);
+  const circP=346;document.getElementById('ring-principal').style.strokeDashoffset=circP-(circP*pctP/100);
 
   // Auxiliar — usar helpers
   let pegadasA=0, paraIntercambiarCnt=0, paraPegarCnt=0, dispTotalA=0;
@@ -1396,7 +1552,7 @@ function updateDashboard(){
   document.getElementById('owned-a').textContent=pegadasA;           // pegadas
   document.getElementById('miss-a').textContent=paraIntercambiarCnt; // para intercambiar
   document.getElementById('rep-a').textContent=paraPegarCnt;         // para pegar
-  const circA=258;document.getElementById('ring-auxiliar').style.strokeDashoffset=circA-(circA*pctA/100);
+  const circA=132;document.getElementById('ring-auxiliar').style.strokeDashoffset=circA-(circA*pctA/100);
 
   // Sugerencias: intercambiar = intercambiar>0; pegar = pegar>0
   const paraIntercambiar=ALL.filter(s=>auxGet(s.num).intercambiar>0);
@@ -2835,7 +2991,6 @@ function wzUpdateModeBtns(){
   if(recvMode==='team') wzBuildTeamList('');
   wzUpdateRecvSummary();
 }
-function wzUpdateRecvAlbHint(){}
 function wzToggleTeamDrop(){
   const dd=document.getElementById('wz-team-drop');if(!dd)return;
   const open=dd.style.display!=='none';
@@ -2958,29 +3113,6 @@ function wzSaveWorldRequest(){
   closeWizard();toast('📋 Solicitud guardada','success');
 }
 
-// Legacy stubs (keep renderWorldSummary/setRecvAlbum/etc for any residual calls)
-function setSwapType(){}
-function setRecvAlbum(a){recvAlbum=a;wzUpdateAlbBtns&&wzUpdateAlbBtns();}
-function setRecvMode(m){recvMode=m;wzUpdateModeBtns&&wzUpdateModeBtns();}
-function renderSwapList(){}
-function renderWorldList(){}
-function renderWorldSummary(){}
-function renderSelfSummary(){}
-function clearSelfSwap(){selfSel={p:new Set(),a:new Set()};}
-function clearWorldSwap(){worldSel={p:new Set(),a:new Set(),r:new Set()};recvTeamId='';}
-function createSelfRequest(){}
-function createWorldRequest(){}
-function confirmSelfSwapNow(){}
-function toggleSelfItem(){}
-function toggleWorldItem(){}
-function buildRecvTeamList(){}
-function selectRecvTeam(){}
-function populateRecvTeamSel(){}
-function updateRecvTeamPreview(){}
-function filterRecvTeamList(){}
-function toggleRecvTeamDropdown(){}
-function closeRecvTeamDropdown(){}
-
 // Requests management
 function addSwapRequest(req){
   req.id=Date.now();req.status='pending';req.date=new Date().toLocaleDateString('es-AR');
@@ -3049,23 +3181,41 @@ function _confirmWorldTeamRequest(req){
   const teamName=t?t.name:req.recvTeam;
   const teamStks=ALL.filter(s=>s.teamId===req.recvTeam);
   const albLabel={'principal':'📘 Principal','auxiliar':'🟠 Auxiliar','ambos':'⭐ Ambos'};
-  const selectId='modal-team-recv-sel';
-  const opts=teamStks.map(s=>{
+  const flagH=t&&FLAG_CODES[t.id]?flagImg(t.id,16):'';
+
+  // Build custom button list instead of native <select>
+  const optButtons=teamStks.map(s=>{
     const hasPrinc=(S.principal[s.num]||0)>0;
     const hasAux=auxAny(s.num);
-    const mark=hasPrinc||hasAux?' ✓ ya la tenés':'';
-    return '<option value="'+s.num+'">'+s.num+' — '+s.name+mark+'</option>';
+    const mark=hasPrinc?'<span style="color:var(--P);font-size:10px;margin-left:4px;">✓ ya en P</span>':hasAux?'<span style="color:var(--A);font-size:10px;margin-left:4px;">✓ ya en Aux</span>':'';
+    return `<div class="recv-stk-opt" id="rso-${s.num}" onclick="selectRecvStk('${s.num}')"
+      style="display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,0.03);transition:all .15s;margin-bottom:5px;">
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:15px;color:var(--gold);min-width:52px;">${s.num}</span>
+      <span style="flex:1;font-size:12px;color:var(--text-dim)">${s.name}</span>
+      ${mark}
+    </div>`;
   }).join('');
-  const extraHTML='<div style="width:100%;margin-bottom:12px;"><div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">¿Cuál figurita de <strong style="color:var(--gold)">'+teamName+'</strong> recibiste? (va a '+(albLabel[dest]||'📘 Principal')+')</div><select id="'+selectId+'" style="width:100%;background:rgba(255,255,255,0.07);border:1px solid var(--border);border-radius:8px;padding:9px 12px;color:var(--text);font-size:13px;outline:none;"><option value="">— Elegí la figurita —</option>'+opts+'</select></div>';
+
+  const extraHTML=`
+    <div style="width:100%;margin-bottom:4px;">
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">
+        ¿Cuál figurita de <strong style="color:var(--gold)">${flagH} ${teamName}</strong> recibiste?
+        <span style="color:var(--text-muted)"> → va a ${albLabel[dest]||'📘 Principal'}</span>
+      </div>
+      <input id="recv-stk-search" type="text" placeholder="🔍 Buscar jugador..." oninput="filterRecvStkOpts(this.value)"
+        style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:8px 12px;color:var(--text);font-family:'Outfit',sans-serif;font-size:12px;outline:none;margin-bottom:8px;">
+      <div id="recv-stk-list" style="max-height:220px;overflow-y:auto;padding-right:2px;">${optButtons}</div>
+      <input type="hidden" id="recv-stk-chosen" value="">
+    </div>`;
+
   const chips=[...(req.giveP||[]).map(n=>'📘↑'+n),...(req.giveA||[]).map(n=>'🟠↑'+n)];
   showModal({
     icon:'🎴',title:'Confirmar con '+teamName,titleCls:'confirm',
-    body:'Elegí cuál figura de '+teamName+' llegó. Las que entregás se descuentan ahora.',
+    body:'Seleccioná la figurita que recibiste. Las que entregás se descuentan.',
     chips,confirmLabel:'Confirmar intercambio',confirmCls:'mbtn-ok',extraHTML,
     onConfirm:()=>{
-      const selEl=document.getElementById(selectId);
-      const chosenNum=selEl?selEl.value:'';
-      if(!chosenNum){toast('⚠️ Elegí qué figurita recibiste antes de confirmar','warn');return;}
+      const chosenNum=document.getElementById('recv-stk-chosen')?.value||'';
+      if(!chosenNum){toast('⚠️ Seleccioná qué figurita recibiste antes de confirmar','warn');return;}
       (req.giveP||[]).forEach(n=>{if((S.principal[n]||0)>1)S.principal[n]--;});
       (req.giveA||[]).forEach(n=>{auxUseIntercambiar(n);});
       if(dest==='principal'||dest==='ambos'){const wasIn=(S.principal[chosenNum]||0)>0;S.principal[chosenNum]=(S.principal[chosenNum]||0)+1;if(!wasIn)auxOnPrincipalAdded(chosenNum);}
@@ -3075,6 +3225,25 @@ function _confirmWorldTeamRequest(req){
       save();renderPendingList();renderSwapHist();updateDashIfVis();
       toast('✅ Intercambio confirmado — '+chosenNum+' agregada al álbum','success');
     }
+  });
+}
+
+function selectRecvStk(num){
+  document.querySelectorAll('.recv-stk-opt').forEach(el=>{
+    el.style.background='rgba(255,255,255,0.03)';
+    el.style.borderColor='var(--border)';
+  });
+  const el=document.getElementById('rso-'+num);
+  if(el){el.style.background='rgba(251,191,36,0.12)';el.style.borderColor='var(--gold)';}
+  const inp=document.getElementById('recv-stk-chosen');
+  if(inp) inp.value=num;
+}
+
+function filterRecvStkOpts(q){
+  const lq=q.toLowerCase();
+  document.querySelectorAll('.recv-stk-opt').forEach(el=>{
+    const txt=el.textContent.toLowerCase();
+    el.style.display=(!lq||txt.includes(lq))?'':'none';
   });
 }
 
@@ -3370,12 +3539,356 @@ function toggleChMark(n){S.principal[n]=(S.principal[n]||0)>0?0:1;save();renderC
 function delChallenge(id,e){e.stopPropagation();S.challenges=(S.challenges||[]).filter(c=>c.id!==id);save();renderChallengesList();updateDashIfVis();}
 
 // ============================================================
+// DASHBOARD PROGRESS TOGGLE
+// ============================================================
+let _dashSugOpen=false;
+function toggleDashSugerencias(){
+  _dashSugOpen=!_dashSugOpen;
+  const wrap=document.getElementById('dash-sug-wrap');
+  const chev=document.getElementById('dash-sug-chev');
+  if(wrap) wrap.style.display=_dashSugOpen?'':'none';
+  if(chev) chev.style.transform=_dashSugOpen?'':'rotate(-90deg)';
+}
+
+let _dashProgOpen=true;
+function toggleDashProgress(){
+  _dashProgOpen=!_dashProgOpen;
+  const wrap=document.getElementById('dash-progress-wrap');
+  const chev=document.getElementById('dash-prog-chev');
+  if(wrap) wrap.style.display=_dashProgOpen?'':'none';
+  if(chev) chev.style.transform=_dashProgOpen?'':'rotate(-90deg)';
+}
+
+// ============================================================
+// AMIGOS — carga via URL de GitHub o archivo JSON
+// ============================================================
+let amigoData = null;
+
+async function loadAmigoLocal(){
+  try{const r=await window.storage.get('wc26-amigo');if(r&&r.value){amigoData=JSON.parse(r.value);return;}}catch(e){}
+  try{const b=localStorage.getItem('wc26-amigo');if(b)amigoData=JSON.parse(b);}catch(e){}
+}
+async function saveAmigoLocal(){
+  try{await window.storage.set('wc26-amigo',JSON.stringify(amigoData));}catch(e){}
+  try{localStorage.setItem('wc26-amigo',JSON.stringify(amigoData));}catch(e){}
+}
+async function loadAmigo(){await loadAmigoLocal();}
+async function saveAmigo(){await saveAmigoLocal();}
+
+function openLoadAmigoModal(){
+  const savedUrl=localStorage.getItem('wc26-amigo-url')||'';
+  const existing=document.getElementById('load-amigo-modal');if(existing)existing.remove();
+  const d=document.createElement('div');
+  d.id='load-amigo-modal';
+  d.style.cssText='position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px;';
+  d.onclick=e=>{if(e.target===d)d.remove();};
+  d.innerHTML='<div style="background:#0a1224;border:1px solid var(--border);border-radius:16px;padding:24px;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.8);">'
+    +'<div style="font-family:Bebas Neue,sans-serif;font-size:20px;letter-spacing:2px;color:var(--gold);margin-bottom:4px;">📂 CARGAR ÁLBUM DE AMIGO</div>'
+    +'<div style="font-size:12px;color:var(--text-muted);margin-bottom:18px;">Usá la URL raw de GitHub o subí el archivo directamente.</div>'
+    +'<div style="margin-bottom:14px;">'
+    +'<div style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--text-muted);margin-bottom:7px;">OPCIÓN 1 — URL DE GITHUB (raw link)</div>'
+    +'<div style="display:flex;gap:8px;">'
+    +'<input id="amigo-url-input" type="text" value="'+savedUrl+'" placeholder="https://raw.githubusercontent.com/usuario/repo/main/amigo.json" '
+    +'style="flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:9px 12px;color:var(--text);font-family:Outfit,sans-serif;font-size:12px;outline:none;">'
+    +'<button class="btn btn-primary" style="padding:9px 16px;font-size:12px;white-space:nowrap;" onclick="loadAmigoFromUrl()">Cargar</button>'
+    +'</div>'
+    +'<div style="font-size:11px;color:var(--text-muted);margin-top:6px;">💡 En GitHub: abrí el archivo JSON → botón <strong style="color:var(--text)">Raw</strong> → copiá la URL de la barra del navegador.</div>'
+    +'</div>'
+    +'<div style="display:flex;align-items:center;gap:10px;margin:16px 0;"><div style="flex:1;height:1px;background:var(--border)"></div><span style="font-size:11px;color:var(--text-muted)">o</span><div style="flex:1;height:1px;background:var(--border)"></div></div>'
+    +'<div style="margin-bottom:18px;">'
+    +'<div style="font-size:10px;font-weight:700;letter-spacing:1px;color:var(--text-muted);margin-bottom:7px;">OPCIÓN 2 — SUBIR ARCHIVO JSON</div>'
+    +'<button class="btn btn-secondary" style="width:100%;display:flex;align-items:center;justify-content:center;gap:8px;" onclick="document.getElementById(\'amigoFile\').click()">📁 Seleccionar archivo .json</button>'
+    +'</div>'
+    +'<div id="amigo-load-error" style="display:none;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:10px 13px;font-size:12px;color:#fca5a5;margin-bottom:12px;"></div>'
+    +'<button class="btn btn-secondary" style="width:100%;" onclick="document.getElementById(\'load-amigo-modal\').remove()">Cancelar</button>'
+    +'</div>';
+  document.body.appendChild(d);
+  setTimeout(()=>document.getElementById('amigo-url-input')?.focus(),50);
+}
+
+async function loadAmigoFromUrl(){
+  const inp=document.getElementById('amigo-url-input');
+  const errEl=document.getElementById('amigo-load-error');
+  const url=(inp?.value||'').trim();
+  if(!url){if(errEl){errEl.textContent='Ingresá una URL válida.';errEl.style.display='';}return;}
+  let rawUrl=url.replace('https://github.com/','https://raw.githubusercontent.com/').replace('/blob/','/')  .replace('/tree/','/');
+  if(errEl) errEl.style.display='none';
+  if(inp) inp.disabled=true;
+  try{
+    const resp=await fetch(rawUrl);
+    if(!resp.ok) throw new Error('Error '+resp.status+' al descargar. Verificá que la URL sea correcta y el repo sea público.');
+    const d=await resp.json();
+    if(d.principal===undefined) throw new Error('El archivo no contiene datos de álbum válidos.');
+    amigoData={principal:d.principal||{},auxiliar:d.auxiliar||{},savedAt:d.exportedAt||new Date().toISOString(),name:amigoData?.name||'Mi amigo',sourceUrl:rawUrl};
+    localStorage.setItem('wc26-amigo-url',rawUrl);
+    await saveAmigoLocal();
+    document.getElementById('load-amigo-modal')?.remove();
+    renderAmigoPage();
+    toast('👥 Álbum del amigo cargado desde GitHub','success');
+  }catch(err){
+    if(errEl){errEl.textContent=err.message;errEl.style.display='';}
+  }finally{
+    if(inp) inp.disabled=false;
+  }
+}
+
+function importAmigoTrigger(){document.getElementById('amigoFile').click();}
+
+function importAmigoData(e){
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=async ev=>{
+    try{
+      const d=JSON.parse(ev.target.result);
+      if(d.principal===undefined) throw new Error('Formato inválido');
+      amigoData={principal:d.principal||{},auxiliar:d.auxiliar||{},savedAt:d.exportedAt||new Date().toISOString(),name:amigoData?.name||'Mi amigo'};
+      await saveAmigoLocal();
+      document.getElementById('load-amigo-modal')?.remove();
+      renderAmigoPage();
+      toast('👥 Álbum del amigo cargado correctamente','success');
+    }catch(err){
+      const errEl=document.getElementById('amigo-load-error');
+      if(errEl){errEl.textContent='Archivo inválido — tiene que ser un JSON exportado desde la app.';errEl.style.display='';}
+      else toast('❌ Archivo inválido','warn');
+    }
+  };
+  r.readAsText(f);e.target.value='';
+}
+
+function exportMisDatos(){
+  const payload={version:2,exportedAt:new Date().toISOString(),principal:S.principal,auxiliar:S.auxiliar};
+  const b=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='mis-figus-mundial2026.json';a.click();
+  toast('💾 Datos exportados — subilo a tu carpeta de GitHub','success');
+}
+
+function saveAmigoName(){
+  const inp=document.getElementById('amigo-name-input');
+  if(!inp||!amigoData)return;
+  amigoData.name=inp.value||'Mi amigo';
+  saveAmigoLocal();
+}
+
+async function refreshAmigoFromUrl(){
+  const savedUrl=amigoData?.sourceUrl||localStorage.getItem('wc26-amigo-url');
+  if(!savedUrl){openLoadAmigoModal();return;}
+  const btnEl=document.getElementById('amigo-refresh-btn');
+  if(btnEl){btnEl.textContent='⏳ Actualizando...';btnEl.disabled=true;}
+  try{
+    const resp=await fetch(savedUrl+'?t='+Date.now());
+    if(!resp.ok) throw new Error('Error '+resp.status);
+    const d=await resp.json();
+    amigoData={principal:d.principal||{},auxiliar:d.auxiliar||{},savedAt:d.exportedAt||new Date().toISOString(),name:amigoData?.name||'Mi amigo',sourceUrl:savedUrl};
+    await saveAmigoLocal();
+    renderAmigoPage();
+    toast('🔄 Álbum del amigo actualizado','success');
+  }catch(err){
+    toast('❌ No se pudo actualizar: '+err.message,'warn');
+  }finally{
+    if(btnEl){btnEl.textContent='🔄 Actualizar desde GitHub';btnEl.disabled=false;}
+  }
+}
+
+function clearAmigo(){
+  amigoData=null;
+  saveAmigoLocal();
+  localStorage.removeItem('wc26-amigo-url');
+  renderAmigoPage();
+  toast('✓ Álbum del amigo eliminado','success');
+}
+
+
+function toggleAmigoAlbum(){
+  const wrap=document.getElementById('amigo-album-wrap');
+  const chev=document.getElementById('amigo-album-chev');
+  if(!wrap)return;
+  const open=wrap.style.display!=='none';
+  wrap.style.display=open?'none':'block';
+  if(chev) chev.style.transform=open?'rotate(-90deg)':'';
+  if(!open) renderAmigoAlbum();
+}
+let _amigoViewMode='list';
+function setAmigoViewMode(mode,btn){
+  _amigoViewMode=mode;
+  document.querySelectorAll('#amigo-view-mode-bar .vm-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  renderAmigoAlbum();
+}
+
+function renderAmigoAlbum(){
+  const el=document.getElementById('amigo-album-list');
+  if(!el||!amigoData)return;
+  const aP=amigoData.principal||{};
+  const search=(document.getElementById('amigo-fl-search')?.value||'').toLowerCase();
+  const sort=document.getElementById('amigo-fl-sort')?.value||'group';
+  let teams=[...TEAMS];
+  if(search) teams=teams.filter(t=>t.name.toLowerCase().includes(search)||t.id.toLowerCase().includes(search));
+  teams.sort((a,b)=>{
+    if(sort==='group'){
+      const ga=a.group,gb=b.group;
+      if(ga!==gb) return ga<gb?-1:1;
+      return (GROUPS[ga]?.indexOf(a.id)??99)-(GROUPS[gb]?.indexOf(b.id)??99);
+    }
+    if(sort==='alpha') return a.name<b.name?-1:a.name>b.name?1:0;
+    if(sort==='pct_p'){
+      const pa=teamStickers(a).filter(n=>(aP[n]||0)>0).length/teamStickers(a).length;
+      const pb=teamStickers(b).filter(n=>(aP[n]||0)>0).length/teamStickers(b).length;
+      return pb-pa;
+    }
+    if(sort==='missing_p'){
+      const ma=teamStickers(a).length-teamStickers(a).filter(n=>(aP[n]||0)>0).length;
+      const mb=teamStickers(b).length-teamStickers(b).filter(n=>(aP[n]||0)>0).length;
+      return mb-ma;
+    }
+    if(sort==='fifa') return (FIFA_RANK[a.id]||99)-(FIFA_RANK[b.id]||99);
+    return 0;
+  });
+  const cnt=document.getElementById('amigo-fl-count');
+  if(cnt) cnt.textContent=teams.length+' selecciones';
+
+  if(_amigoViewMode==='team'){
+    el.innerHTML=teams.map(t=>{
+      const stks=teamStickers(t);
+      const owned=stks.filter(n=>(aP[n]||0)>0).length;
+      const pct=Math.round(owned/stks.length*100);
+      const chips=stks.map(n=>{
+        const has=(aP[n]||0)>0;const info=SMAP[n]||{};
+        return '<span title="'+info.name+'" style="display:inline-flex;align-items:center;border-radius:6px;padding:2px 7px;font-size:11px;font-family:Bebas Neue,sans-serif;letter-spacing:.3px;margin:2px;background:'+(has?'rgba(0,212,255,0.12)':'rgba(255,255,255,0.03)')+';border:1px solid '+(has?'var(--P)':'rgba(255,255,255,0.08)')+';color:'+(has?'var(--P)':'var(--text-muted)')+';">'+n+'</span>';
+      }).join('');
+      return '<div class="amigo-album-team"><div class="amigo-album-team-hdr" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display===\'none\'?\'block\':\'none\'">'+(t.id&&FLAG_CODES[t.id]?flagImg(t.id,16):'')+' <span style="flex:1;font-size:13px;font-weight:600">'+t.name+'</span><span style="font-size:10px;color:var(--text-muted);margin-right:8px">Grupo '+t.group+'</span><span style="font-size:11px;color:'+(pct===100?'var(--accent3)':pct>50?'var(--gold)':'var(--text-muted)')+'">'+owned+'/'+stks.length+' · '+pct+'%</span></div><div style="display:none;padding:8px 14px 12px;">'+chips+'</div></div>';
+    }).join('');
+    return;
+  }
+
+  // list mode — fl-cards style
+  const contLabel={CONMEBOL:'CONMEBOL',UEFA:'UEFA',CONCACAF:'CONCACAF',CAF:'CAF',AFC:'AFC',OFC:'OFC'};
+  el.innerHTML='<div class="fl-cards">'+teams.map(t=>{
+    const stks=teamStickers(t);const n=stks.length;
+    const p=stks.filter(s=>(aP[s]||0)>0).length;
+    const pp=Math.round(p/n*100);const isComplete=p>=n;
+    const contKey=TEAM_CONT[t.id]||'';const fifaRk=FIFA_RANK[t.id];
+    return '<div class="fl-card"><div class="fl-card-top"><div class="fl-card-flag">'+flagImg(t.id,36)+'</div><div class="fl-card-main"><div class="fl-card-name">'+t.name+'</div><div class="fl-card-meta"><span class="fl-card-tag grp">Grupo '+t.group+'</span>'+(contKey?'<span class="fl-card-tag cont">'+(contLabel[contKey]||contKey)+'</span>':'')+(fifaRk?'<span class="fl-card-tag fifa">FIFA #'+fifaRk+'</span>':'')+'</div></div><div class="fl-card-right"><div class="fl-card-pct'+(isComplete?' complete':'')+'">'+pp+'%</div><div class="fl-card-pct-sub">completado</div></div></div><div class="fl-card-bars"><div class="fl-bar-row"><div class="fl-bar-label p">📘 Su Principal</div><div class="fl-bar-track"><div class="fl-bar-fill p" style="width:'+pp+'%"></div></div><div class="fl-bar-cnt">'+p+'/'+n+'</div></div></div>'+(isComplete?'<div class="fl-card-complete-banner">✅ Equipo completo</div>':'')+'</div>';
+  }).join('')+'</div>';
+}
+
+function renderAmigoPage(){
+  const empty=document.getElementById('amigo-empty');
+  const loaded=document.getElementById('amigo-loaded');
+  const fbStatus=document.getElementById('amigo-fb-status');
+
+  if(fbStatus){
+    if(_fbDb){
+      fbStatus.innerHTML='<span style="color:var(--accent3);font-size:12px;">🔥 Firebase activo — sincronización automática cada 2 min</span>'
+        +'<button class="btn btn-secondary" style="font-size:11px;padding:4px 10px;margin-left:8px;" onclick="disconnectFirebase()">Desconectar</button>';
+    } else {
+      fbStatus.innerHTML='<span style="color:var(--text-muted);font-size:12px;">📵 Sin sincronización automática</span>'
+        +'<button class="btn btn-primary" style="font-size:11px;padding:4px 12px;margin-left:8px;" onclick="openFirebaseSetup()">⚙️ Configurar Firebase</button>';
+    }
+  }
+
+  if(!amigoData){
+    if(empty) empty.style.display='';
+    if(loaded) loaded.style.display='none';
+    return;
+  }
+  if(empty) empty.style.display='none';
+  if(loaded) loaded.style.display='';
+
+  const nameInp=document.getElementById('amigo-name-input');
+  if(nameInp) nameInp.value=amigoData.name||'Mi amigo';
+
+  const syncEl=document.getElementById('amigo-sync-info');
+  if(syncEl&&amigoData.savedAt){
+    const d=new Date(amigoData.savedAt);
+    const diff=Math.round((Date.now()-d.getTime())/60000);
+    const cuando=diff<2?'hace un momento':diff<60?`hace ${diff} min`:`${d.toLocaleDateString('es-AR')} ${d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'})}`;
+    const src=amigoData.sourceUrl?`<span style="font-size:10px;color:var(--text-muted)"> · 🔗 GitHub</span>`:'';
+    syncEl.innerHTML=`Última carga: <strong style="color:var(--text)">${cuando}</strong>${src}`;
+  }
+
+  const aP=amigoData.principal||{};
+  const aPegadasP=ALL.filter(s=>(aP[s.num]||0)>0).length;
+  const aFaltanP=TOTAL-aPegadasP;
+  const heroEl=document.getElementById('amigo-hero-stats');
+  if(heroEl) heroEl.innerHTML=
+    '<div style="text-align:center;padding:8px 14px;background:rgba(0,212,255,0.08);border-radius:10px;border:1px solid rgba(0,212,255,0.2);">'
+    +'<div style="font-family:Bebas Neue,sans-serif;font-size:28px;color:var(--P)">'+Math.round(aPegadasP/TOTAL*100)+'%</div>'
+    +'<div style="font-size:10px;color:var(--text-muted)">Completado</div></div>'
+    +'<div style="text-align:center;padding:8px 14px;">'
+    +'<div style="font-family:Bebas Neue,sans-serif;font-size:28px;color:var(--accent2)">'+aFaltanP+'</div>'
+    +'<div style="font-size:10px;color:var(--text-muted)">Le faltan</div></div>';
+
+  renderAmigoCruce();
+  renderAmigoAlbum();
+}
+
+function renderAmigoCruce(){
+  const grid=document.getElementById('amigo-cruce-grid');
+  if(!grid||!amigoData)return;
+  const aP=amigoData.principal||{};
+
+  // Él te puede dar: él tiene en pegar (ya en su principal) Y vos no tenés en tu principal
+  // Según modelo: del amigo, sus "pegar>0" son sus disponibles para darte
+  const aA=amigoData.auxiliar||{};
+  const elTeDa=ALL.filter(s=>{
+    const av=aA[s.num];
+    const suPegar=av&&typeof av==='object'?av.pegar||0:(typeof av==='number'?0:0);
+    return suPegar>0 && (S.principal[s.num]||0)===0;
+  });
+
+  // Vos le podés dar: tenés pegar>0 en tu aux Y él no tiene en principal
+  const vosDas=ALL.filter(s=>{
+    return auxGet(s.num).pegar>0 && (aP[s.num]||0)===0;
+  });
+
+  function mkList(stks,emptyMsg,col){
+    if(!stks.length) return `<div style="padding:20px;text-align:center;font-size:12px;color:var(--text-muted)">${emptyMsg}</div>`;
+    const byTeam={};
+    stks.forEach(s=>{if(!byTeam[s.teamId||'_'])byTeam[s.teamId||'_']={name:s.team,items:[]};byTeam[s.teamId||'_'].items.push(s);});
+    return Object.values(byTeam).sort((a,b)=>a.name.localeCompare(b.name)).map(g=>`
+      <div style="margin-bottom:8px;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;display:flex;align-items:center;gap:5px;">
+          ${g.items[0]?.teamId&&FLAG_CODES[g.items[0].teamId]?flagImg(g.items[0].teamId,12):''}${g.name}
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;">
+          ${g.items.map(s=>`<span title="${s.name}" style="display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,0.04);border:1px solid ${col};border-radius:6px;padding:3px 8px;">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:12px;color:${col}">${s.num}</span>
+            <span style="font-size:9px;color:var(--text-muted)">${s.name.slice(0,10)}</span>
+          </span>`).join('')}
+        </div>
+      </div>`).join('');
+  }
+
+  const totalCruce=elTeDa.length+vosDas.length;
+  const badge=document.getElementById('amigo-cruce-badge');
+  if(badge) badge.textContent=totalCruce;
+
+  grid.innerHTML=`
+    <div class="amigo-cruce-col">
+      <div class="amigo-cruce-hdr" style="color:var(--accent3);">
+        ✅ ÉL TE PUEDE DAR
+        <span style="float:right;background:rgba(16,185,129,0.2);border-radius:10px;padding:1px 7px;">${elTeDa.length}</span>
+      </div>
+      <div class="amigo-cruce-body">${mkList(elTeDa,'No tiene nada disponible que te falte 👍','var(--accent3)')}</div>
+    </div>
+    <div class="amigo-cruce-col">
+      <div class="amigo-cruce-hdr" style="color:var(--gold);">
+        🔄 VOS LE PODÉS DAR
+        <span style="float:right;background:rgba(251,191,36,0.2);border-radius:10px;padding:1px 7px;">${vosDas.length}</span>
+      </div>
+      <div class="amigo-cruce-body">${mkList(vosDas,'No tenés nada disponible que le falte a él','var(--gold)')}</div>
+    </div>`;
+}
+
+// ============================================================
 // INIT
 // ============================================================
 async function init(){
   await load();normalize();
+  await loadAmigoLocal();
   updateDashboard();
   renderSwapPage();
+  renderAmigoPage();
 }
 init();
 </script>
